@@ -1,0 +1,118 @@
+.auth-container {
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+padding: 20px;
+}
+
+.auth-card {
+background: white;
+padding: 40px;
+border-radius: 16px;
+box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+width: 100%;
+max-width: 440px;
+}
+
+h2 {
+text-align: center;
+margin-bottom: 8px;
+color: #1a1a1a;
+font-size: 28px;
+font-weight: 700;
+}
+
+.subtitle {
+text-align: center;
+color: #6b7280;
+margin-bottom: 30px;
+font-size: 14px;
+}
+
+.form-group {
+margin-bottom: 20px;
+}
+
+label {
+display: block;
+margin-bottom: 8px;
+color: #374151;
+font-weight: 500;
+font-size: 14px;
+}
+
+input[type="username"],
+input[type="password"] {
+width: 100%;
+padding: 12px 16px;
+border: 2px solid #e5e7eb;
+border-radius: 8px;
+font-size: 14px;
+box-sizing: border-box;
+}
+
+.form-options {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 24px;
+font-size: 14px;
+}
+
+.checkbox-label {
+display: flex;
+align-items: center;
+color: #374151;
+}
+
+.checkbox-label input {
+margin-right: 8px;
+}
+
+.forgot-link {
+color: #667eea;
+text-decoration: none;
+font-weight: 500;
+}
+
+
+.btn-primary {
+width: 100%;
+padding: 14px;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+border: none;
+border-radius: 8px;
+font-size: 16px;
+font-weight: 600;
+}
+
+.btn-social {
+width: 100%;
+padding: 12px;
+background: white;
+border: 2px solid #e5e7eb;
+border-radius: 8px;
+font-size: 14px;
+font-weight: 500;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+color: #374151;
+}
+
+.link-text {
+text-align: center;
+margin-top: 24px;
+color: #6b7280;
+font-size: 14px;
+}
+
+.link-text a {
+color: #667eea;
+text-decoration: none;
+font-weight: 600;
+}
