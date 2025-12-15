@@ -28,7 +28,6 @@ transform: translateY(0);
 }
 }
 
-
 h2 {
 text-align: center;
 margin-bottom: 8px;
@@ -64,6 +63,13 @@ border: 2px solid #e5e7eb;
 border-radius: 8px;
 font-size: 14px;
 box-sizing: border-box;
+transition: all 0.2s;
+}
+
+input:focus {
+outline: none;
+border-color: #667eea;
+box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .form-options {
