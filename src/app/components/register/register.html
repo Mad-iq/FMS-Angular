@@ -39,6 +39,13 @@
           [disabled]="isLoading"
           required>
       </div>
+
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" [(ngModel)]="agreeTerms" name="agreeTerms" [disabled]="isLoading">
+          <span>I agree to the <a href="#">Terms and Conditions</a></span>
+        </label>
+      </div>
      
       <div class="error-message" *ngIf="errorMessage">
         {{ errorMessage }}
