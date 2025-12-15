@@ -89,4 +89,64 @@
       </div>
     </div>
   </section>
+  <section class="results-section" *ngIf="searched">
+    <div class="results-container">
+      <div class="results-header">
+        <h2>Available Flights ({{ flights.length }} found)</h2>
+      </div>
+
+      <div class="flight-list" *ngIf="!isLoading && flights.length > 0">
+        <div class="flight-card" *ngFor="let flight of flights; let i = index">
+          <div class="flight-header">
+            <div class="airline-info">
+              <div>
+                <h4>{{ flight.airline || 'Airline' }}</h4>
+                <span class="flight-number">{{ flight.flightId || 'N/A' }}</span>
+              </div>
+            </div>
+            <div class="price-info">
+              <span class="price">₹{{ flight.price || 0 }}</span>
+              <span class="price-label">per person</span>
+            </div>
+          </div>
+         
+          <div class="flight-details">
+            <div class="flight-time">
+              <div class="time-block">
+                <span class="time">{{ formatTime(flight.dateTime) }}</span>
+                <span class="airport">{{ searchForm.source }}</span>
+                <span class="city">{{ formatDate(flight.dateTime) }}</span>
+              </div>
+             
+              <div class="flight-duration">
+                <span class="duration">Direct Flight</span>
+                <div class="duration-line">
+                  <div class="plane-icon">✈</div>
+                </div>
+                <span class="stops">Non-stop</span>
+              </div>
+             
+              <div class="time-block">
+                <span class="time">Arrives</span>
+                <span class="airport">{{ searchForm.destination }}</span>
+                <span class="city">{{ formatDate(flight.dateTime) }}</span>
+              </div>
+            </div>
+          </div>
+         
+          <div class="flight-footer">
+            <div class="amenities">
+              <span class="amenity">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                </svg>
+                {{ flight.availableSeats || 0 }} seats left
+              </span>
+            </div>
+            <button class="btn-book">Select Flight</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
