@@ -7,6 +7,11 @@ export interface SearchFlightRequest {
   returnDate?: string;
 }
 
+export interface FlightSearchResponse {
+  onwardFlights: Flight[];
+  returnFlights?: Flight[];
+}
+
 export interface Flight {
   flightId: string;
   airline: string;
