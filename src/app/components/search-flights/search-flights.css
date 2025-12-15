@@ -135,6 +135,12 @@
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.btn-search:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+
 /* res */
 .results-section {
   max-width: 1200px;
@@ -162,6 +168,7 @@
   color: #1a1a1a;
 }
 
+
 .flight-list {
   display: block;
   width: 100%;
@@ -174,6 +181,13 @@
   border-radius: 12px !important;
   padding: 24px !important;
   margin-bottom: 16px !important;
+  transition: all 0.3s !important;
+}
+
+.flight-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
 }
 
 .flight-header {
@@ -195,11 +209,6 @@
   margin-bottom: 4px;
 }
 
-.flight-number {
-  color: #6b7280;
-  font-size: 13px;
-}
-
 .price-info {
   text-align: right;
 }
@@ -208,7 +217,7 @@
   display: block;
   font-size: 32px;
   font-weight: 700;
-  color: #667eea;
+  color: #3bafd0;
   line-height: 1;
 }
 
@@ -284,13 +293,13 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(90deg);
+  transform: translate(-50%, -50%);
   font-size: 20px;
 }
 
 .stops {
   font-size: 12px;
-  color: #10b981;
+  color: #3bafd0;
   font-weight: 500;
 }
 
