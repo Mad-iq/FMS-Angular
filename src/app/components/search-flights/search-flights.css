@@ -87,6 +87,10 @@
   gap: 16px;
 }
 
+.input-row:last-of-type {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .input-group {
   display: flex;
   flex-direction: column;
