@@ -1,0 +1,92 @@
+<div class="page-container">
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Book Domestic and International Flight Tickets</h1>
+      <p>Search and compare Flights from hundreds of Airlines</p>
+     
+      <div class="search-card">
+        <div class="search-tabs">
+          <button
+            type="button"
+            class="tab"
+            [class.active]="!searchForm.roundTrip"
+            (click)="searchForm.roundTrip = false">
+            One Way
+          </button>
+          <button
+            type="button"
+            class="tab"
+            [class.active]="searchForm.roundTrip"
+            (click)="searchForm.roundTrip = true">
+            Round Trip
+          </button>
+        </div>
+       
+        <form class="search-form" (ngSubmit)="searchFlights()">
+          <div class="input-row">
+            <div class="input-group">
+              <label>From (City Code)</label>
+              <input
+                type="text"
+                [(ngModel)]="searchForm.source"
+                name="source"
+                placeholder="e.g., DELHI, MUMBAI"
+                required>
+            </div>
+           
+            <div class="input-group">
+              <label>To (City Code)</label>
+              <input
+                type="text"
+                [(ngModel)]="searchForm.destination"
+                name="destination"
+                placeholder="e.g., DELHI, MUMBAI"
+                required>
+            </div>
+          </div>
+         
+          <div class="input-row">
+            <div class="input-group">
+              <label>Departure Date</label>
+              <input
+                type="date"
+                [(ngModel)]="searchForm.departureDate"
+                name="departureDate"
+                required>
+            </div>
+           
+            <div class="input-group" *ngIf="searchForm.roundTrip">
+              <label>Return Date</label>
+              <input
+                type="date"
+                [(ngModel)]="searchForm.returnDate"
+                name="returnDate">
+            </div>
+           
+            <div class="input-group">
+              <label>Passengers</label>
+              <input
+                type="number"
+                [(ngModel)]="searchForm.numberOfPassengers"
+                name="numberOfPassengers"
+                min="1"
+                max="9"
+                required>
+            </div>
+          </div>
+         
+          <div class="error-message" *ngIf="errorMessage && !searched">
+            {{ errorMessage }}
+          </div>
+         
+          <button type="submit" class="btn-search">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+            </svg>
+            Search Flights
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
