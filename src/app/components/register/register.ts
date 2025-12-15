@@ -39,6 +39,11 @@ export class RegisterComponent {
       return;
     }
 
+    if (this.password.length < 6) {
+      this.errorMessage = 'Password must be at least 6 characters';
+      return;
+    }
+
     this.isLoading = true;
 
     this.authService.register(this.username, this.password, 'USER').subscribe({
