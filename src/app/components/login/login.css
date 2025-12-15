@@ -162,3 +162,26 @@ font-weight: 600;
 .link-text a:hover {
 text-decoration: underline;
 }
+
+.error-message {
+  color: #e74c3c;
+  background: #fee;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1px solid #fcc;
+}
+
+
+.success-message {
+  color: #27ae60;
+  background: #efd;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1px solid #cfc;
+}
