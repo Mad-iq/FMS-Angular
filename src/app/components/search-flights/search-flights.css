@@ -19,12 +19,10 @@
   padding: 60px 40px 120px;
 }
 
-
 .searcher-content {
   max-width: 1200px;
   margin: 0 auto;
 }
-
 
 .searcher-content h1 {
   color: white;
@@ -33,7 +31,6 @@
   margin-bottom: 12px;
   text-align: center;
 }
-
 
 .searcher-content > p {
   color: rgba(255, 255, 255, 0.9);
@@ -67,6 +64,15 @@
   border-bottom: 3px solid transparent;
   margin-bottom: -2px;
   transition: all 0.2s;
+}
+
+.tab.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.tab:hover {
+  color: #667eea;
 }
 
 .search-form {
