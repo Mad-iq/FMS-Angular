@@ -37,7 +37,7 @@ export class LoginComponent {
       next: (response) => {
         if (response.token) {
           console.log('Login successful');
-          this.router.navigate(['/search']);
+          this.router.navigate(['/search-flights']);
         } else if (response.error) {
           this.errorMessage = response.error;
         }
