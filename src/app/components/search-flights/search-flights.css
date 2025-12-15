@@ -15,7 +15,7 @@
 }
 
 .searcher-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #66a4ea 0%, #4265ac 100%);
   padding: 60px 40px 120px;
 }
 
@@ -67,12 +67,12 @@
 }
 
 .tab.active {
-  color: #667eea;
-  border-bottom-color: #667eea;
+  color: #4265ac;
+  border-bottom-color: #4265ac;
 }
 
 .tab:hover {
-  color: #667eea;
+  color: #4265ac;
 }
 
 .search-form {
@@ -115,13 +115,13 @@
 .input-group input:focus,
 .input-group select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #4265ac;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 .btn-search {
   padding: 16px 32px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #66a4ea 0%, #4265ac 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -222,7 +222,7 @@
 }
 
 .flight-card:hover {
-  border-color: #667eea;
+  border-color: #4265ac;
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
   transform: translateY(-2px);
 }
@@ -363,7 +363,7 @@
 
 .btn-book {
   padding: 12px 32px;
-  background: #667eea;
+  background: #4265ac;
   color: white;
   border: none;
   border-radius: 8px;

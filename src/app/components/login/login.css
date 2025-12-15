@@ -3,7 +3,7 @@ min-height: 100vh;
 display: flex;
 justify-content: center;
 align-items: center;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+background: linear-gradient(135deg, #66a4ea 0%, #4265ac 100%);
 padding: 20px;
 }
 
@@ -68,7 +68,7 @@ transition: all 0.2s;
 
 input:focus {
 outline: none;
-border-color: #667eea;
+border-color: #4265ac;
 box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
@@ -93,7 +93,7 @@ cursor: pointer;
 }
 
 .forgot-link {
-color: #667eea;
+color: #4265ac;
 text-decoration: none;
 font-weight: 500;
 }
@@ -105,7 +105,7 @@ text-decoration: underline;
 .btn-primary {
 width: 100%;
 padding: 14px;
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+background: linear-gradient(135deg, #66a4ea 0%, #4265ac 100%);
 color: white;
 border: none;
 border-radius: 8px;
@@ -154,7 +154,7 @@ font-size: 14px;
 }
 
 .link-text a {
-color: #667eea;
+color: #4265ac;
 text-decoration: none;
 font-weight: 600;
 }
