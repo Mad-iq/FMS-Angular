@@ -72,12 +72,8 @@ border-color: #667eea;
 box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-.form-options {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 24px;
-font-size: 14px;
+.checkbox-group {
+  margin-bottom: 24px;
 }
 
 .checkbox-label {
@@ -85,21 +81,22 @@ display: flex;
 align-items: center;
 cursor: pointer;
 color: #374151;
+font-size: 14px;
 }
 
 .checkbox-label input {
 margin-right: 8px;
+margin-top: 2px;
 cursor: pointer;
 }
 
-.forgot-link {
-color: #667eea;
-text-decoration: none;
-font-weight: 500;
+.checkbox-label a {
+  color: #667eea;
+  text-decoration: none;
 }
 
-.forgot-link:hover {
-text-decoration: underline;
+.checkbox-label a:hover {
+  text-decoration: underline;
 }
 
 .btn-primary {
