@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, BehaviorSubject, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { LoginRequest, AuthResponse } from '../models/user.model';
+import { LoginRequest, RegisterRequest, AuthResponse } from '../models/user.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AuthService {
   private tokenKey = 'auth_token';
   private userRoleKey = 'user_role';
   private usernameKey = 'username';
-
+ 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
   public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
 
@@ -22,6 +23,12 @@ export class AuthService {
     private http: HttpClient,
     private router: Router
   ) {}
+
+
+  register(username: string, password: string, role: string = 'USER'): Observable<AuthResponse> {
+    const body: RegisterRequest = { username, password, role };
+    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, body);
+  }
 
 
   login(username: string, password: string): Observable<AuthResponse> {
@@ -38,6 +45,15 @@ export class AuthService {
         }
       })
     );
+  }
+
+
+  logout(): void {
+    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.userRoleKey);
+    localStorage.removeItem(this.usernameKey);
+    this.isAuthenticatedSubject.next(false);
+    this.router.navigate(['/login']);
   }
 
 
