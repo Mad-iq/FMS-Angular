@@ -1,6 +1,22 @@
 # FlightBookingApp
 The Flight Booking Management System is a modern, full-stack web application designed to simplify flight search, booking, and ticket management. The application provides a secure and user-friendly interface for passengers to search available flights and manage bookings, while enabling administrators to manage flight data efficiently.
 
+## Final Web Pages
+
+Register Page
+
+<img width="1916" height="951" alt="Screenshot 2025-12-15 233501" src="https://github.com/user-attachments/assets/3029b62e-896f-43fd-9920-6e2af3aa84b7" />
+
+Login Page
+
+<img width="1918" height="940" alt="Screenshot 2025-12-15 233518" src="https://github.com/user-attachments/assets/81c6d16b-603e-4d44-ae8e-82b3ef3288f6" />
+
+Search Flight Page
+
+<img width="1919" height="944" alt="Screenshot 2025-12-15 233552" src="https://github.com/user-attachments/assets/28817061-7443-430a-a2b3-f295607fb6ec" />
+
+<img width="1914" height="946" alt="Screenshot 2025-12-15 233607" src="https://github.com/user-attachments/assets/d333ea82-3a76-4a8e-8052-015a866f1ce0" />
+
 ## Design Progression
 
 ### Initial Html pages
@@ -19,22 +35,6 @@ Search-Flights Page
 
 <img width="1916" height="946" alt="Screenshot 2025-12-15 090500" src="https://github.com/user-attachments/assets/39ec9cfa-c785-4d2f-9204-847710f88cff" />
 
-
-### Final Web Pages
-
-Register Page
-
-<img width="1916" height="951" alt="Screenshot 2025-12-15 233501" src="https://github.com/user-attachments/assets/3029b62e-896f-43fd-9920-6e2af3aa84b7" />
-
-Login Page
-
-<img width="1918" height="940" alt="Screenshot 2025-12-15 233518" src="https://github.com/user-attachments/assets/81c6d16b-603e-4d44-ae8e-82b3ef3288f6" />
-
-Search Flight Page
-
-<img width="1919" height="944" alt="Screenshot 2025-12-15 233552" src="https://github.com/user-attachments/assets/28817061-7443-430a-a2b3-f295607fb6ec" />
-
-<img width="1914" height="946" alt="Screenshot 2025-12-15 233607" src="https://github.com/user-attachments/assets/d333ea82-3a76-4a8e-8052-015a866f1ce0" />
 
 ### Database
 
