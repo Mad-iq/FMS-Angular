@@ -19,6 +19,7 @@ export class RegisterComponent {
   errorMessage = '';
   successMessage = '';
   isLoading = false;
+  agreeTerms = false;
 
   constructor(
     private authService: AuthService,
@@ -43,6 +44,12 @@ export class RegisterComponent {
       this.errorMessage = 'Password must be at least 6 characters';
       return;
     }
+
+    if (!this.agreeTerms) {
+      this.errorMessage = 'Please agree to the terms and conditions';
+      return;
+    }
+
 
     this.isLoading = true;
 
