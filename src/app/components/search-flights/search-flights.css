@@ -33,7 +33,7 @@
 }
 
 .searcher-content > p {
-  color: rgba(255, 255, 255, 0.9);
+  color: white;
   font-size: 18px;
   text-align: center;
   margin-bottom: 40px;
@@ -140,6 +140,15 @@
   box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
 }
 
+.error-message {
+  color: #e74c3c;
+  background: #fee;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 14px;
+  border: 1px solid #fcc;
+}
 
 /* res */
 .results-section {
