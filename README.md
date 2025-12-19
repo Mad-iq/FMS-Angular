@@ -1,6 +1,81 @@
 # FlightBookingApp
+The Flight Booking Management System is a modern, full-stack web application designed to simplify flight search, booking, and ticket management. The application provides a secure and user-friendly interface for passengers to search available flights and manage bookings, while enabling administrators to manage flight data efficiently.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+## Final Web Pages
+
+Register Page
+
+<img width="1916" height="951" alt="Screenshot 2025-12-15 233501" src="https://github.com/user-attachments/assets/3029b62e-896f-43fd-9920-6e2af3aa84b7" />
+
+Login Page
+
+<img width="1918" height="940" alt="Screenshot 2025-12-15 233518" src="https://github.com/user-attachments/assets/81c6d16b-603e-4d44-ae8e-82b3ef3288f6" />
+
+Search Flight Page
+
+<img width="1919" height="944" alt="Screenshot 2025-12-15 233552" src="https://github.com/user-attachments/assets/28817061-7443-430a-a2b3-f295607fb6ec" />
+
+<img width="1914" height="946" alt="Screenshot 2025-12-15 233607" src="https://github.com/user-attachments/assets/d333ea82-3a76-4a8e-8052-015a866f1ce0" />
+
+## Design Progression
+
+### Initial Html pages
+
+Register Page
+
+<img width="1916" height="934" alt="Screenshot 2025-12-15 125850" src="https://github.com/user-attachments/assets/0f48a3eb-cbba-49df-a2f3-e7c42ec60dec" />
+
+
+Login Page
+
+<img width="1919" height="948" alt="Screenshot 2025-12-15 232341" src="https://github.com/user-attachments/assets/6110d180-bf84-4d70-af5f-6ffb06698282" />
+
+
+Search-Flights Page
+
+<img width="1916" height="946" alt="Screenshot 2025-12-15 090500" src="https://github.com/user-attachments/assets/39ec9cfa-c785-4d2f-9204-847710f88cff" />
+
+
+### Database
+
+Database content: Aarushi has been added to the database successfully!
+
+<img width="1594" height="976" alt="Screenshot 2025-12-16 000108" src="https://github.com/user-attachments/assets/2c857fd0-f111-4aad-8612-49ee9a34e023" />
+
+
+### Validation
+
+1. All fields required for registering a user
+
+<img width="1918" height="948" alt="Screenshot 2025-12-15 234904" src="https://github.com/user-attachments/assets/05016eb0-98a3-4b97-9056-557e453977d3" />
+
+2. Password must be 6 digits
+
+<img width="1919" height="946" alt="Screenshot 2025-12-15 234635" src="https://github.com/user-attachments/assets/82b7de18-bd92-4096-bf05-cb97dd72ff28" />
+
+3. Passwords do not match
+
+<img width="1914" height="951" alt="Screenshot 2025-12-15 234614" src="https://github.com/user-attachments/assets/9d5756e0-6455-4f71-b69d-a11b33906bfa" />
+
+4. Agree to the term and conditions
+
+<img width="1919" height="946" alt="Screenshot 2025-12-15 234700" src="https://github.com/user-attachments/assets/afd66994-6084-4850-b4ec-03a8c887117d" />
+
+5. All fields required for login
+
+<img width="1919" height="945" alt="Screenshot 2025-12-15 234517" src="https://github.com/user-attachments/assets/46ba57aa-9946-4609-9e5c-bc574ee5aebc" />
+
+6. Invalid Credentials
+
+<img width="1917" height="942" alt="Screenshot 2025-12-15 234536" src="https://github.com/user-attachments/assets/7288e9ec-2041-49c7-aa19-bc8ef9b01ad9" />
+
+7. All fields required for flight search
+
+<img width="1914" height="950" alt="Screenshot 2025-12-15 234412" src="https://github.com/user-attachments/assets/1c3c7223-a655-4451-bcfc-5c4284e2d90a" />
+
+8. No flights found
+
+<img width="1917" height="942" alt="Screenshot 2025-12-15 234501" src="https://github.com/user-attachments/assets/a279983b-835c-47bb-b4fe-a90f031e14e1" />
 
 ## Development server
 
