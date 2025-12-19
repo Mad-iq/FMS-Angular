@@ -1,0 +1,43 @@
+<div class="booking-container">
+  <h2>Confirm Booking</h2>
+  <input [(ngModel)]="booking.userName" placeholder="Enter username"/>
+
+  <input [(ngModel)]="booking.userEmail" placeholder="Enter email" />
+
+  <input type="number" min="1"
+  [(ngModel)]="booking.numberOfSeats"
+  (ngModelChange)="onSeatCountChange($event)" placeholder="Enter the number of passengers"
+  />
+
+  <select [(ngModel)]="booking.mealType">
+    <option value="VEG">VEG</option>
+    <option value="NON_VEG">NON_VEG</option>
+  </select>
+
+  <hr>
+
+  <div *ngFor="let passenger of booking.passengers; let i = index">
+    <h4>Passenger {{i+1}}</h4>
+    <input [(ngModel)]="passenger.name" placeholder="Enter name" />
+    <input [(ngModel)]="passenger.age" placeholder="Enter age" />
+
+    <label>
+      <input type="radio" value="F" [(ngModel)]="passenger.gender" name="gender{{i}}"/>
+      Female
+    </label>
+
+    <label>
+      <input type="radio" value="M" [(ngModel)]="passenger.gender" name=" gender{{i}}"/>
+      Male
+    </label>
+
+    <input [(ngModel)]="passenger.seatNumber" placeholder="Enter seatnumber" />
+  </div>
+
+  <button class="btn-book" (click)="bookFlight()">Book Flight</button>
+  <p class="success" *ngIf="successMessage"> {{ successMessage }} </p>
+  <p class="error" *ngIf="error">{{ error }}</p>
+  
+  <hr>
+  <button [disabled]="!pnr" (click)="goToBookingDetails()">Booking Details</button>
+</div>

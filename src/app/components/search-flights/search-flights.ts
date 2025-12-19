@@ -4,19 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { FlightService } from '../../services/flight.service';
 import { Flight, SearchFlightRequest } from '../../models/flight.model';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-search-flights',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './search-flights.html',
   styleUrls: ['./search-flights.css']
 })
 export class SearchFlightsComponent implements OnInit {
   username: string = '';
   searchForm = {
-    source: '',
-    destination: '',
+    source: 'DELHI',
+    destination: 'MUMBAI',
     departureDate: '',
     returnDate: '',
     numberOfPassengers: 1,
@@ -27,10 +28,12 @@ export class SearchFlightsComponent implements OnInit {
   searched = false;
   isLoading = false;
   errorMessage = '';
+  isAuthenticated= false;
 
   constructor(
     private authService: AuthService,
-    private flightService: FlightService
+    private flightService: FlightService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -93,5 +96,9 @@ export class SearchFlightsComponent implements OnInit {
       day: 'numeric',
       year: 'numeric'
     });
+  }
+
+  goToBooking(flightId: string){
+    this.router.navigate(['/book-flight', flightId]);
   }
 }

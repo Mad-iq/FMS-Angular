@@ -16,7 +16,7 @@ export class FlightService {
     return this.http.post<any>(`${this.apiUrl}/search`, searchRequest).pipe(
       timeout(30000),
       map(response => {
-        return response?.onwardFlights || response || [];
+        return response?.onwardFlights || response || [];  //the backend responses may vary
       }),
       catchError(error => throwError(() => error))
     );

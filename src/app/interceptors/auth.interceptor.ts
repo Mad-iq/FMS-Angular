@@ -11,9 +11,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     return next(req);
   }
 
-
   if (token) {
-    const cloned = req.clone({
+    const cloned = req.clone({   //http reqs are immutable in angular, so cant modify then directly
       setHeaders: {
         Authorization: `Bearer ${token}`
       }
@@ -24,4 +23,5 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req);
 };
 
-
+//This HTTP interceptor automatically attaches a JWT Authorization header to all outgoing HTTP requests except 
+// authentication endpoints, enabling secure access to protected backend APIs.

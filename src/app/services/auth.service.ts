@@ -7,7 +7,7 @@ import { LoginRequest, RegisterRequest, AuthResponse } from '../models/user.mode
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'   //this service is a singleton, available app-wide, aito created by angular
 })
 export class AuthService {
   private apiUrl = environment.apiUrl;
@@ -27,7 +27,7 @@ export class AuthService {
 
   register(username: string, password: string, role: string = 'USER'): Observable<AuthResponse> {
     const body: RegisterRequest = { username, password, role };
-    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, body);
+    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, body);  //returns an observable whoch doesnt exe untill .subscribe is called
   }
 
 
@@ -36,12 +36,12 @@ export class AuthService {
     return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, body).pipe(
       tap(response => {
         if (response.token) {
-          this.setToken(response.token);
-          this.setUsername(username);
+          this.setToken(response.token);  //Saves JWT in localStorage
+          this.setUsername(username);     //Stores username locally
           if (response.role) {
             this.setUserRole(response.role);
           }
-          this.isAuthenticatedSubject.next(true);
+          this.isAuthenticatedSubject.next(true);   //emits true to all subscribers, tell the app that the user is now logged in
         }
       })
     );
@@ -52,7 +52,7 @@ export class AuthService {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem(this.userRoleKey);
     localStorage.removeItem(this.usernameKey);
-    this.isAuthenticatedSubject.next(false);
+    this.isAuthenticatedSubject.next(false);        //braodcast logout event
     this.router.navigate(['/login']);
   }
 

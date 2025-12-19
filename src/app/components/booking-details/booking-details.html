@@ -1,0 +1,43 @@
+<div class="booking-details-container">
+
+  <div *ngIf="loading">
+    <p>Loading...</p>
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <div *ngIf="booking" class="booking-card">
+
+    <h2>Booking Details</h2>
+
+    <p><strong>PNR:</strong> {{ booking.pnr }}</p>
+    <p><strong>Flight ID:</strong> {{ booking.flightId }}</p>
+    <p><strong>Status:</strong><span class="status-confirmed"> {{ booking.status }}</span></p>
+    <p><strong>Seat Numbers:</strong>{{ booking.seatNumbers.join(', ') }}</p>
+
+    <hr>
+
+    <h3>Passengers</h3>
+    <table class="passenger-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let passenger of booking.passengers; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ passenger.name }}</td>
+          <td>{{ passenger.gender }}</td>
+          <td>{{ passenger.age }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
