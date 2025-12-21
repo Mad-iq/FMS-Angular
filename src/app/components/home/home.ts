@@ -11,8 +11,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./home.css']
 })
 export class HomeComponent {
-  isAuthenticated = false;
-  username = '';
+  get isAuthenticated(): boolean {
+  return this.authService.isAuthenticated();
+  }
 
   features = [
     {
@@ -41,12 +42,7 @@ export class HomeComponent {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {
-    this.isAuthenticated = this.authService.isAuthenticated();
-    if (this.isAuthenticated) {
-      this.username = this.authService.getUsername() || 'User';
-    }
-  }
+  ) {}
 
   navigateToSearch() {
     if (this.isAuthenticated) {
@@ -58,5 +54,13 @@ export class HomeComponent {
 
   logout() {
     this.authService.logout();
+  }
+
+  viewBookings(){
+    this.router.navigate(['/booking-history']);
+  }
+
+  cancelBookings(){
+    this.router.navigate(['cancel-ticket']);
   }
 }

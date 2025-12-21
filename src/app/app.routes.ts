@@ -5,6 +5,8 @@ import { SearchFlightsComponent } from './components/search-flights/search-fligh
 import { HomeComponent } from './components/home/home';
 import { BookingFlightComponent } from './components/booking-flights/booking-flights';
 import { BookingDetails } from './components/booking-details/booking-details';
+import { BookingHistory } from './components/booking-history/booking-history';
+import { CancelTicket } from './components/cancel-ticket/cancel-ticket';
 
 
 export const routes: Routes = [
@@ -14,5 +16,7 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'search-flights',component: SearchFlightsComponent },
   { path: 'book-flight/:flightId', component: BookingFlightComponent },
-  { path: 'booking-details/:pnr', component: BookingDetails}
+  { path: 'booking-details/:pnr', component: BookingDetails},
+  { path: 'booking-history', component: BookingHistory},
+  { path: 'cancel-ticket', component: CancelTicket}
 ];

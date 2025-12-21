@@ -1,25 +1,26 @@
 <div class="booking-container">
   <h2>Confirm Booking</h2>
-  <input [(ngModel)]="booking.userName" placeholder="Enter username"/>
 
-  <input [(ngModel)]="booking.userEmail" placeholder="Enter email" />
+  <div class="form-group">
+  <input type="text" [(ngModel)]="booking.userName" placeholder="Enter username"/>
 
-  <input type="number" min="1"
-  [(ngModel)]="booking.numberOfSeats"
-  (ngModelChange)="onSeatCountChange($event)" placeholder="Enter the number of passengers"
-  />
+  <input type= "email" [(ngModel)]="booking.userEmail" placeholder="Enter email" />
+
+  <input type="number" min="1" [(ngModel)]="booking.numberOfSeats" (ngModelChange)="onSeatCountChange($event)" placeholder="Enter the number of passengers" />
 
   <select [(ngModel)]="booking.mealType">
     <option value="VEG">VEG</option>
     <option value="NON_VEG">NON_VEG</option>
   </select>
 
+  </div>
+
   <hr>
 
-  <div *ngFor="let passenger of booking.passengers; let i = index">
+  <div class="passenger-card" *ngFor="let passenger of booking.passengers; let i = index">
     <h4>Passenger {{i+1}}</h4>
     <input [(ngModel)]="passenger.name" placeholder="Enter name" />
-    <input [(ngModel)]="passenger.age" placeholder="Enter age" />
+    <input type="number" [(ngModel)]="passenger.age" placeholder="Enter age" />
 
     <label>
       <input type="radio" value="F" [(ngModel)]="passenger.gender" name="gender{{i}}"/>

@@ -1,0 +1,65 @@
+<div class="history-container">
+
+  <div class="header">
+    <h2>My Booking History</h2>
+
+    <div class="search-bar">
+      <input type="email" placeholder="Enter your email" [(ngModel)]="email"/>
+      <button (click)="getHistory()" [disabled]="loading">Search</button>
+    </div>
+    <p class="error" *ngIf="errormsg">{{ errormsg }}</p>
+  </div>
+
+  <div class="booking-grid" *ngIf="history.length > 0">
+    <div class="booking-card" *ngFor="let booking of history">
+      <div class="row">
+        <span class="label">PNR</span>
+        <span class="value">{{booking.pnr}}</span>
+      </div>
+      <div class="row">
+        <span class="label">Passengers</span>
+        <span class="value">{{booking.numberOfPassengers}}</span>
+      </div>
+      <div class="row">
+        <span class="label">Journey Date</span>
+        <span class="value">{{ booking.journeyDate | date:'mediumDate' }}</span>
+      </div>
+      <div class="row">
+        <span class="label">Total Price</span>
+        <span class="value">₹{{ booking.totalPrice }}</span>
+      </div>
+      <div class="row">
+        <span class="label">Status</span>
+        <span class="status"
+          [class.confirmed]="booking.status === 'CONFIRMED'"
+          [class.cancelled]="booking.status === 'CANCELLED'">
+          {{ booking.status }}
+        </span>
+      </div>
+      <div class="actions">
+        <button class="button-cancel" (click)="openCancelDialog(booking)" [disabled]="booking.status === 'CANCELLED' || booking.cancelling"> Cancel Ticket</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dialog-backdrop" *ngIf="showConfirmDialog">
+  <div class="dialog">
+    <h3>Cancel Booking</h3>
+    <p> Are you sure you want to cancel booking <strong>{{ selectedTicket.pnr }}</strong>?</p>
+    <div class="dialog-actions">
+      <button class="button-sec" (click)="closeConfirmDialog()">No</button>
+      <button class="button-danger" (click)="confirmCancel()">Yes, Cancel</button>
+    </div>
+  </div>
+</div>
+<div class="dialog-backdrop" *ngIf="showMessageDialog">
+  <div class="dialog"
+    [class.success-dialog]="msgType === 'success'" [class.error-dialog]="msgType === 'error'">
+    <h3>{{msgTitle}}</h3>
+    <p>{{ msgText}}</p>
+    <div class="dialog-actions">
+      <button class="button-pri" (click)="closeMessageDialog()">Close</button>
+    </div>
+  </div>
+</div>

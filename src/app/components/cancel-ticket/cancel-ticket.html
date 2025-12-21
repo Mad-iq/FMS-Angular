@@ -1,0 +1,7 @@
+<div class="cancel-container">
+  <h2>Cancel Ticket</h2>
+
+  <input type="text" placeholder="Enter PNR" [(ngModel)]="pnr"/>
+  <button type="button" (click)="cancelTicket()">Cancel Ticket</button>
+  <p class="message" *ngIf="message">{{message}}</p>
+</div>

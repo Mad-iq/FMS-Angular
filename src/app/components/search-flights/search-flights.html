@@ -47,7 +47,7 @@
                 type="text"
                 [(ngModel)]="searchForm.source"
                 name="source"
-                placeholder="e.g., DELHI, MUMBAI"
+                placeholder="e.g DELHI, MUMBAI"
                 required>
             </div>
            
@@ -57,7 +57,7 @@
                 type="text"
                 [(ngModel)]="searchForm.destination"
                 name="destination"
-                placeholder="e.g., DELHI, MUMBAI"
+                placeholder="e.g DELHI, MUMBAI"
                 required>
             </div>
           </div>
@@ -65,11 +65,7 @@
           <div class="input-row">
             <div class="input-group">
               <label>Departure Date</label>
-              <input
-                type="date"
-                [(ngModel)]="searchForm.departureDate"
-                name="departureDate"
-                required>
+              <input type="date" [(ngModel)]="searchForm.departureDate" name="departureDate" [min]="today" required>
             </div>
            
             <div class="input-group" *ngIf="searchForm.roundTrip">

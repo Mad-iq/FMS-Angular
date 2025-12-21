@@ -15,10 +15,11 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class SearchFlightsComponent implements OnInit {
   username: string = '';
+  today!: string;
   searchForm = {
     source: 'DELHI',
     destination: 'MUMBAI',
-    departureDate: '',
+    departureDate: '2025-12-31',
     returnDate: '',
     numberOfPassengers: 1,
     roundTrip: false
@@ -28,7 +29,9 @@ export class SearchFlightsComponent implements OnInit {
   searched = false;
   isLoading = false;
   errorMessage = '';
-  isAuthenticated= false;
+  get isAuthenticated(): boolean {
+  return this.authService.isAuthenticated();
+}
 
   constructor(
     private authService: AuthService,
@@ -38,6 +41,8 @@ export class SearchFlightsComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.authService.getUsername() || 'User';
+     const now = new Date();
+     this.today = now.toISOString().split('T')[0];
   }
   
   searchFlights() {

@@ -12,3 +12,12 @@ export interface BookingRequest {
   mealPreference: string;
   seatNumbers: string[];
 }
+
+export interface BookingHistoryItem {
+  pnr: string;
+  numberOfPassengers: number;
+  totalPrice: number;
+  journeyDate: string;
+  status: 'CONFIRMED' | 'CANCELLED';
+  cancelling?: boolean;
+}

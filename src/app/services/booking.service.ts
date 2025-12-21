@@ -25,7 +25,20 @@ export class BookingService {
 
 getBookingsByEmail(email: string) {
   return this.http.get(
-    `http://localhost:8765/BOOKING-MICROSERVICE/api/filght/booking/history/${email}`
+    `http://localhost:8765/BOOKING-MICROSERVICE/api/flight/booking/history/${email}`
+  );
+}
+
+cancelBookingByPnr(pnr: string){
+  return this.http.delete(
+    `http://localhost:8765/BOOKING-MICROSERVICE/api/flight/booking/cancel/${pnr}`
+  );
+}
+
+//for new api
+getBookingWithDetails(email: string) {
+  return this.http.get<any>(
+    `http://localhost:8765/BOOKING-MICROSERVICE/api/flight/booking/history/details/${email}`
   );
 }
 }
