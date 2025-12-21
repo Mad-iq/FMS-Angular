@@ -3,9 +3,7 @@
 
   <div class="form-group">
   <input type="text" [(ngModel)]="booking.userName" placeholder="Enter username"/>
-
   <input type= "email" [(ngModel)]="booking.userEmail" placeholder="Enter email" />
-
   <input type="number" min="1" [(ngModel)]="booking.numberOfSeats" (ngModelChange)="onSeatCountChange($event)" placeholder="Enter the number of passengers" />
 
   <select [(ngModel)]="booking.mealType">
@@ -19,26 +17,24 @@
 
   <div class="passenger-card" *ngFor="let passenger of booking.passengers; let i = index">
     <h4>Passenger {{i+1}}</h4>
-    <input [(ngModel)]="passenger.name" placeholder="Enter name" />
+    <div class="row">
+    <input type="text" [(ngModel)]="passenger.name" placeholder="Enter name" />
     <input type="number" [(ngModel)]="passenger.age" placeholder="Enter age" />
-
+    <div class="gender-group">
     <label>
       <input type="radio" value="F" [(ngModel)]="passenger.gender" name="gender{{i}}"/>
       Female
     </label>
-
     <label>
       <input type="radio" value="M" [(ngModel)]="passenger.gender" name=" gender{{i}}"/>
       Male
     </label>
-
+    </div>
     <input [(ngModel)]="passenger.seatNumber" placeholder="Enter seatnumber" />
   </div>
-
+  </div>
   <button class="btn-book" (click)="bookFlight()">Book Flight</button>
-  <p class="success" *ngIf="successMessage"> {{ successMessage }} </p>
   <p class="error" *ngIf="error">{{ error }}</p>
   
-  <hr>
-  <button [disabled]="!pnr" (click)="goToBookingDetails()">Booking Details</button>
-</div>
+
+

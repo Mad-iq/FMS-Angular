@@ -15,7 +15,6 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 export class BookingFlightComponent implements OnInit {
 flightId!: string;
 error='';
-successMessage='';
 pnr='';
 
 booking= {
@@ -50,7 +49,6 @@ onSeatCountChange(seats: number) {
 
   bookFlight(): void{
     this.error='';
-    this.successMessage='';
     const bookingRequest: BookingRequest={
       email: this.booking.userEmail,
       name:this.booking.userName,
@@ -66,31 +64,16 @@ onSeatCountChange(seats: number) {
 
     this.bookingService.bookFlight(this.flightId, bookingRequest).subscribe({
       next: (response: any)=>{
-        if(response?.message && response.message.toLowerCase().includes('unavailable')){
-          this.error=response.message;
-          this.successMessage='';
-        }else{
-          this.successMessage='Bookingcompleted successfully!';
-          this.error='';
-        }
-
         if(response?.pnr){
-          this.pnr=response.pnr;
+           this.router.navigate(['/booking-details', response.pnr]);
+        }else{
+          this.error='Booking completed but PNR not received';
         }
       },
-
         error: (error)=>{
           this.error= error.error?.message || 'Booking not successful';
-          this.successMessage='';
         }
     });
-
-  }
-
-   goToBookingDetails(){
-    if(this.pnr){
-       this.router.navigate(['/booking-details',this.pnr]);
-    } 
   }
 }
 
