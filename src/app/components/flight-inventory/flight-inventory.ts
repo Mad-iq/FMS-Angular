@@ -4,10 +4,11 @@ import { FlightService } from '../../services/flight.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Navbar } from '../navbar/navbar';
 
 @Component({
   selector: 'app-flight-inventory',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Navbar],
   templateUrl: './flight-inventory.html',
   styleUrl: './flight-inventory.css',
 })

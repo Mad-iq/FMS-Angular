@@ -3,62 +3,10 @@
   height: 90vh;
   margin: 40px auto;
   padding: 30px;
-  background: #f8fafc;
+  background: #c9e0f5;
   border-radius: 14px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
-
-navbar {
-  background: linear-gradient(135deg, #8ba7dc 0%, #85b3e7 100%);
-  padding: 0;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: white;
-  font-size: 24px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 15px;
-  transition: opacity 0.2s;
-}
-
-.nav-links a:hover {
-  opacity: 0.8;
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
 
 .inventory-container h2 {
   text-align: center;
@@ -99,7 +47,7 @@ button {
   margin-top: 22px;
   width: 100%;
   padding: 12px;
-  background: #2563eb;
+  background: #5688f4;
   color: #ffffff;
   border: none;
   border-radius: 10px;

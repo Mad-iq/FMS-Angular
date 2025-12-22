@@ -4,7 +4,6 @@
   top: 0;
   z-index: 100;
   border-bottom: 1px solid #e5e7eb;
-  border-radius: 35px;
 }
 
 .nav-content {
@@ -26,8 +25,8 @@
   background: transparent;
   border: none;
   padding: 6px 4px;
-  font-size: 14.5px;
-  font-weight: 500;
+  font-size: 15.5px;
+  font-weight: 600;
   color: #334155;
   text-decoration: none;
   cursor: pointer;
@@ -35,7 +34,7 @@
 }
 
 .nav-link:hover, .nav-btn:hover,.btn-admin:hover,.btn-link:hover,.btn-primary-nav:hover,.btn-logout:hover{
-  color: #2563eb;
+  color: #3867cd;
 }
 
 .btn-primary-nav,

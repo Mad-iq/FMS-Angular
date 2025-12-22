@@ -1,5 +1,7 @@
+<app-navbar></app-navbar>
 <div class="inventory-container">
   <h2>Add Flight to Inventory</h2>
+
   <div class="form-grid">
     <input type="text" placeholder="Airline Name" [(ngModel)]="flight.airlineName"/>
      <input type="number" min="1" placeholder="Available Seats" [(ngModel)]="flight.availableSeats"/>
@@ -18,7 +20,8 @@
      <input type="checkbox" [(ngModel)]="flight.mealStatus"/>
       Meal Available
     </label>
-  </div>
+   </div>
+
   <button (click)="addFlight()" [disabled]="isLoading">{{isLoading?'Adding Flight...':'Add Flight'}}</button>
   <p class="success" *ngIf="successMessage">{{successMessage }}</p>
   <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>

@@ -1,12 +1,8 @@
+<app-navbar></app-navbar>
 <div class="history-container">
 
   <div class="header">
     <h2>My Booking History</h2>
-
-    <div class="search-bar">
-      <input type="email" placeholder="Enter your email" [(ngModel)]="email"/>
-      <button (click)="getHistory()" [disabled]="loading">Search</button>
-    </div>
     <p class="error" *ngIf="errormsg">{{ errormsg }}</p>
   </div>
 

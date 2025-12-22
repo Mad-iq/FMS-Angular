@@ -1,6 +1,6 @@
 .history-container {
   padding: 40px 60px;
-  background: #f8fafc;
+  background: #c9e0f5;
   min-height: 100vh;
 }
 
@@ -9,9 +9,9 @@
 }
 
 .header h2 {
-  font-size: 26px;
+  font-size: 35px;
   font-weight: 600;
-  color: #0f172a;
+  color: #23335a;
 }
 
 .search-bar {
