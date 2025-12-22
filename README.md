@@ -17,24 +17,6 @@ Search Flight Page
 
 <img width="1914" height="946" alt="Screenshot 2025-12-15 233607" src="https://github.com/user-attachments/assets/d333ea82-3a76-4a8e-8052-015a866f1ce0" />
 
-## Design Progression
-
-### Initial Html pages
-
-Register Page
-
-<img width="1916" height="934" alt="Screenshot 2025-12-15 125850" src="https://github.com/user-attachments/assets/0f48a3eb-cbba-49df-a2f3-e7c42ec60dec" />
-
-
-Login Page
-
-<img width="1919" height="948" alt="Screenshot 2025-12-15 232341" src="https://github.com/user-attachments/assets/6110d180-bf84-4d70-af5f-6ffb06698282" />
-
-
-Search-Flights Page
-
-<img width="1916" height="946" alt="Screenshot 2025-12-15 090500" src="https://github.com/user-attachments/assets/39ec9cfa-c785-4d2f-9204-847710f88cff" />
-
 
 ### Database
 
