@@ -26,7 +26,14 @@ export class SearchFlightsComponent implements OnInit {
     numberOfPassengers: 1,
     roundTrip: false
   };
-  
+  airports: string[] = [
+  'DELHI',
+  'MUMBAI',
+  'BENGALURU',
+  'PUNE',
+  'CHENNAI',
+  'HYDERABAD',
+  'KOLKATA'];
   flights: Flight[] = [];
   searched = false;
   isLoading = false;
@@ -54,7 +61,6 @@ export class SearchFlightsComponent implements OnInit {
       this.errorMessage = 'Please fill in all required fields';
       return;
     }
-
     this.isLoading = true;
     this.searched = true;
     this.flights = [];
@@ -67,12 +73,11 @@ export class SearchFlightsComponent implements OnInit {
       roundTrip: this.searchForm.roundTrip,
       returnDate: this.searchForm.roundTrip ? this.searchForm.returnDate : undefined
     };
-
     this.flightService.searchFlights(searchRequest).subscribe({
-      next: (flights) => {
+      next: (flights) =>{
         this.flights = flights;
         this.isLoading = false;
-        if (this.flights.length === 0) {
+        if (this.flights.length === 0){
           this.errorMessage = 'No flights found for your search criteria';
         }
       },
@@ -88,16 +93,16 @@ export class SearchFlightsComponent implements OnInit {
     this.authService.logout();
   }
 
-  formatTime(dateTime: string): string {
-    return new Date(dateTime).toLocaleTimeString('en-US', {
+  formatTime(dateTime: string): string{
+    return new Date(dateTime).toLocaleTimeString('en-US',{
       hour: '2-digit',
       minute: '2-digit',
       hour12: false
     });
   }
 
-  formatDate(dateTime: string): string {
-    return new Date(dateTime).toLocaleDateString('en-US', {
+  formatDate(dateTime: string):string{
+    return new Date(dateTime).toLocaleDateString('en-US',{
       month: 'short',
       day: 'numeric',
       year: 'numeric'

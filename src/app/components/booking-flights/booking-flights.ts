@@ -79,7 +79,7 @@ onSeatCountChange(seats: number) {
             state:{totalPrice: response.totalPrice}
            });
         }else{
-          this.error='Booking completed but PNR not received';
+          this.error='All inputs required';
         }
       },
         error: (error)=>{

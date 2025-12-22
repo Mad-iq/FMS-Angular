@@ -66,14 +66,14 @@ button:disabled {
 
 .success {
   margin-top: 14px;
-  color: #16a34a;
-  font-size: 14px;
+  color: #37b866;
+  font-size: 20px;
 }
 
 .error {
   margin-top: 14px;
   color: #dc2626;
-  font-size: 14px;
+  font-size: 20px;
 }
 
 .form-field{

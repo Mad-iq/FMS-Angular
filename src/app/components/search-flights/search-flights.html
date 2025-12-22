@@ -15,13 +15,19 @@
           <div class="input-row">
             <div class="input-group">
               <label>From (City Code)</label>
-              <input type="text" [(ngModel)]="searchForm.source" name="source" placeholder="e.g DELHI, MUMBAI" required>
+              <select [(ngModel)]="searchForm.source" name="source" required>
+                <option value="" disabled>Select source</option>
+                <option *ngFor="let airport of airports" [value]="airport">{{airport}}</option>
+              </select>
             </div>
             <div class="input-group">
               <label>To (City Code)</label>
-              <input type="text" [(ngModel)]="searchForm.destination" name="destination" placeholder="e.g DELHI" required>
-             </div>
-          </div>
+              <select [(ngModel)]="searchForm.destination" name="destination" required>
+                <option value="" disabled>Select destination</option>
+                <option *ngFor="let airport of airports" [value]="airport">{{airport}}</option>
+              </select>
+              </div>
+              </div>
           <div class="input-row">
             <div class="input-group">
               <label>Departure Date</label>
@@ -37,7 +43,7 @@
             </div>
           </div>
           <div class="error-message" *ngIf="errorMessage && !searched">
-            {{ errorMessage }}
+            {{errorMessage}}
           </div>
           <button type="submit" class="btn-search">Search Flights</button>
         </form>

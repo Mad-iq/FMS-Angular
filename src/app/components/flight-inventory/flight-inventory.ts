@@ -52,7 +52,7 @@ export class FlightInventory{
 
     if ( !airlineName|| !source||!destination|| !startDate|| !endDate|| this.flight.availableSeats<= 0 || this.flight.ticketPrice<= 0) 
     {
-      this.errorMessage = 'Please fill all required fields correctly';
+      this.errorMessage= 'Please fill all required fields correctly';
       return;
     }
     if(source === destination){
@@ -66,15 +66,15 @@ export class FlightInventory{
     this.flight.destination= destination;
     this.isLoading =true;
     this.flightService.addFlight(this.flight).subscribe({
-      next: (response) => {
-        this.successMessage = response?.message || 'Flight added successfully';
-        this.isLoading = false;
+      next: (response) =>{
+        this.successMessage= response?.message || 'Flight added successfully';
+        this.isLoading= false;
         this.resetForm();
       },
-      error: (error) => {
-        this.errorMessage =
-          error.error?.message || 'You are not authorized to add flights';
-        this.isLoading = false;
+      error: (error) =>{
+        this.errorMessage=
+          error.error?.message|| 'You are not authorized to add flights';
+        this.isLoading= false;
       }
     });
   }

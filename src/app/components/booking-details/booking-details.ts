@@ -20,7 +20,6 @@ export class BookingDetails implements OnInit {
 
   constructor(
     private route: ActivatedRoute,private bookingService: BookingService) {}
-
   ngOnInit(): void{
     const navigationState = history.state;
     this.totalPrice = navigationState?.totalPrice;
