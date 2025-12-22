@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from '../../services/booking.service';
+import { Navbar } from '../navbar/navbar';
 
 @Component({
   selector: 'app-booking-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,Navbar],
   templateUrl: './booking-details.html',
   styleUrls: ['./booking-details.css']
 })

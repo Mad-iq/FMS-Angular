@@ -3,39 +3,58 @@
   <h2>Confirm Booking</h2>
 
   <div class="form-group">
-  <input type="text" [(ngModel)]="booking.userName" placeholder="Enter username"/>
-  <input type= "email" [(ngModel)]="booking.userEmail" placeholder="Enter email" />
-  <input type="number" min="1" [(ngModel)]="booking.numberOfSeats" (ngModelChange)="onSeatCountChange($event)" placeholder="Enter the number of passengers" />
-
-  <select [(ngModel)]="booking.mealType">
-    <option value="VEG">VEG</option>
-    <option value="NON_VEG">NON_VEG</option>
-  </select>
-
+    <div class="field">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="booking.userName" placeholder="Enter username"/>
+    </div>
+    <div class="field">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="booking.userEmail" placeholder="Enter email" />
+     </div>
+    <div class="field">
+      <label>Passengers</label>
+      <input type="number" min="1" [(ngModel)]="booking.numberOfSeats" (ngModelChange)="onSeatCountChange($event)" placeholder="Number of passengers" />
+     </div>
+    <div class="field">
+      <label>Meal Type</label>
+      <select [(ngModel)]="booking.mealType">
+        <option value="VEG">Vegetarian</option>
+        <option value="NON_VEG">Non-Vegetarian</option>
+      </select>
+    </div>
   </div>
-
   <hr>
 
   <div class="passenger-card" *ngFor="let passenger of booking.passengers; let i = index">
     <h4>Passenger {{i+1}}</h4>
     <div class="row">
-    <input type="text" [(ngModel)]="passenger.name" placeholder="Enter name" />
-    <input type="number" [(ngModel)]="passenger.age" placeholder="Enter age" />
-    <div class="gender-group">
-    <label>
-      <input type="radio" value="F" [(ngModel)]="passenger.gender" name="gender{{i}}"/>
-      Female
-    </label>
-    <label>
-      <input type="radio" value="M" [(ngModel)]="passenger.gender" name=" gender{{i}}"/>
-      Male
-    </label>
+      <div class="field">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="passenger.name" placeholder="Full name" />
+       </div>
+      <div class="field">
+        <label>Age</label>
+        <input type="number" [(ngModel)]="passenger.age" placeholder="Age" />
+      </div>
+      <div class="field">
+        <label>Gender</label>
+        <div class="gender-group">
+          <label>
+            <input type="radio" value="F"[(ngModel)]="passenger.gender" name="gender{{i}}"/>
+            Female
+          </label>
+          <label>
+            <input type="radio" value="M" [(ngModel)]="passenger.gender" name="gender{{i}}"/>
+            Male
+          </label>
+        </div>
+      </div>
+      <div class="field">
+        <label>Seat Number</label>
+        <input type="text" [(ngModel)]="passenger.seatNumber" placeholder="e.g., 12A"/>
+      </div>
     </div>
-    <input [(ngModel)]="passenger.seatNumber" placeholder="Enter seatnumber" />
-  </div>
   </div>
   <button class="btn-book" (click)="bookFlight()">Book Flight</button>
   <p class="error" *ngIf="error">{{ error }}</p>
-  
-
-
+</div>

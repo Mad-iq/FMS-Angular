@@ -1,0 +1,253 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+ 
+}
+
+.profile-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.profile-container h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.profile-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.row:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: #4265ac;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-primary:active {
+  background: #1e40af;
+}
+
+.dialog-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dialog {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 440px;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dialog h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 1.5rem 0;
+}
+
+.dialog p {
+  font-size: 0.9375rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0 0 1.5rem 0;
+}
+
+.dialog input[type="password"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  color: #1f2937;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.dialog input[type="password"]:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.dialog input[type="password"]::placeholder {
+  color: #9ca3af;
+}
+
+.dialog input[type="password"]:disabled {
+  background: #f9fafb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.button-sec,
+.button-pri {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-family: inherit;
+}
+
+.button-sec {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.button-sec:hover:not(:disabled) {
+  background: #e5e7eb;
+}
+
+.button-sec:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button-pri {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.button-pri:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.button-pri:active:not(:disabled) {
+  background: #1e40af;
+}
+
+.button-pri:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+.success-dialog h3 {
+  color: #059669;
+}
+
+.success-dialog::before {
+  content: "✓";
+  display: block;
+  width: 48px;
+  height: 48px;
+  background: #d1fae5;
+  color: #059669;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 48px;
+  text-align: center;
+  margin: 0 auto 1rem auto;
+}
+
+.error-dialog h3 {
+  color: #dc2626;
+}
+
+.error-dialog::before {
+  content: "✕";
+  display: block;
+  width: 48px;
+  height: 48px;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 48px;
+  text-align: center;
+  margin: 0 auto 1rem auto;
+}
+
+@media (max-width: 640px) {
+  .profile-container {
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .button-sec,
+  .button-pri {
+    width: 100%;
+  }
+}

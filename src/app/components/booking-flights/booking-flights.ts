@@ -42,7 +42,7 @@ onSeatCountChange(seats: number) {
     return;
   this.booking.passengers=Array.from({length: seats}, ()=>({
     name:'',
-    age:18,
+    age:null as any, //shows the placeholder values
     gender:'',
     seatNumber:''
   }));
@@ -62,7 +62,6 @@ onSeatCountChange(seats: number) {
         age: passenger.age
       }))
     };
-
     this.bookingService.bookFlight(this.flightId, bookingRequest).subscribe({
       next: (response: any)=>{
         if(response?.pnr){
@@ -72,7 +71,7 @@ onSeatCountChange(seats: number) {
         }
       },
         error: (error)=>{
-          this.error= error.error?.message || 'Booking not successful';
+          this.error= error.error?.message ||'Booking not successful';
         }
     });
   }
