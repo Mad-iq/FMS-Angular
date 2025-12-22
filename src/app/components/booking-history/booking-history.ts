@@ -42,15 +42,15 @@ export class BookingHistory implements OnInit{
       return;
     }
     this.errormsg = '';
-    this.loading = true;
+    this.loading= true;
     this.bookingService.getBookingWithDetails(this.email).subscribe({
       next:(response:any) =>{
-        this.history = response.bookings || [];
-        this.loading = false;
+        this.history= response.bookings|| [];
+        this.sortBookingsByStatus();
+        this.loading= false;
         if (this.history.length === 0) {
-          this.errormsg = 'No bookings found for this email';
-        }
-      },
+          this.errormsg= 'No bookings found for this email';
+        }},
        error:(error) =>{
         this.errormsg= error?.error?.message || 'Unable to fetch booking history';
         this.loading= false;
@@ -97,5 +97,16 @@ export class BookingHistory implements OnInit{
   closeMessageDialog():void{
     this.showMessageDialog = false;
   }
+
+  private sortBookingsByStatus(): void {
+  this.history.sort((a, b) =>{
+    if (a.status !== b.status){
+      return a.status === 'CONFIRMED'? -1:1;
+    }
+    return new Date(b.journeyDate).getTime() - new Date(a.journeyDate).getTime();
+  });
 }
+
+}
+
 
