@@ -58,7 +58,8 @@ font-size: 14px;
 }
 
 input[type="username"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
 width: 100%;
 padding: 12px 16px;
 border: 2px solid #e5e7eb;
@@ -173,4 +174,14 @@ text-decoration: underline;
   border: 1px solid #fcc;
 }
 
+.success-message {
+  color: #339e2d;
+  background: rgb(195, 228, 181);
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 1px solid rgb(168, 226, 154);
+}
 

@@ -14,6 +14,7 @@ export class AuthService {
   private tokenKey = 'auth_token';
   private userRoleKey = 'user_role';
   private usernameKey = 'username';
+  private useremailKey= 'email';
  
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(this.hasToken());
   public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
@@ -25,24 +26,29 @@ export class AuthService {
   ) {}
 
 
-  register(username: string, password: string, role: string = 'USER'): Observable<AuthResponse> {
-    const body: RegisterRequest = { username, password, role };
+  register(username: string,email: string, password: string, role: string = 'USER'): Observable<AuthResponse> {
+    const body: RegisterRequest = { username,email, password, role };
     return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, body);  //returns an observable whoch doesnt exe untill .subscribe is called
   }
 
 
   login(username: string, password: string): Observable<AuthResponse> {
-    const body: LoginRequest = { username, password };
+    const body: LoginRequest= {username, password};
     return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, body).pipe(
-      tap(response => {
-        if (response.token) {
-          this.setToken(response.token);  //Saves JWT in localStorage
-          this.setUsername(username);     //Stores username locally
-          if (response.role) {
-            this.setUserRole(response.role);
-          }
-          this.isAuthenticatedSubject.next(true);   //emits true to all subscribers, tell the app that the user is now logged in
+        tap(response =>{
+      if (response.token){
+        this.setToken(response.token);
+        if (response.username){
+          this.setUsername(response.username);
         }
+        if (response.email){
+          this.setUserEmail(response.email);
+        }
+        if (response.role){
+          this.setUserRole(response.role);
+        }
+        this.isAuthenticatedSubject.next(true);
+      }
       })
     );
   }
@@ -52,6 +58,7 @@ export class AuthService {
     localStorage.removeItem(this.tokenKey);
     localStorage.removeItem(this.userRoleKey);
     localStorage.removeItem(this.usernameKey);
+    localStorage.removeItem(this.useremailKey);
     this.isAuthenticatedSubject.next(false);        //braodcast logout event
     this.router.navigate(['/login']);
   }
@@ -95,4 +102,13 @@ export class AuthService {
   private hasToken(): boolean {
     return !!this.getToken();
   }
+
+  getUserEmail(): string | null {
+  return localStorage.getItem(this.useremailKey);
+}
+
+  setUserEmail(email: string): void {
+  localStorage.setItem(this.useremailKey, email);
+}
+
 }

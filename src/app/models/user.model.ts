@@ -1,5 +1,6 @@
 export interface RegisterRequest {
   username: string;
+  email: string;
   password: string;
   role?: string;
 }
@@ -12,7 +13,8 @@ export interface LoginRequest {
 
 export interface AuthResponse {
   token?: string;
-  id?: number;
+  username?: string;
+  email?: string;
   role?: string;
   error?: string;
 }

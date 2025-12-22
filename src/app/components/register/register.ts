@@ -15,6 +15,7 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterComponent {
   username = '';
   password = '';
+  email='';
   confirmPassword = '';
   errorMessage = '';
   successMessage = '';
@@ -30,17 +31,23 @@ export class RegisterComponent {
     this.errorMessage = '';
     this.successMessage = '';
 
-    if (!this.username || !this.password || !this.confirmPassword) {
+    //trim the inputs first
+   const username = this.username.trim();
+    const email = this.email.trim();
+    const password = this.password.trim();
+    const confirmPassword = this.confirmPassword.trim();
+
+    if (!username || !email || !password || !confirmPassword) {
       this.errorMessage = 'All fields are required';
       return;
     }
 
-    if (this.password !== this.confirmPassword) {
+    if (password !== confirmPassword) {
       this.errorMessage = 'Passwords do not match';
       return;
     }
 
-    if (this.password.length < 6) {
+    if (password.length < 6) {
       this.errorMessage = 'Password must be at least 6 characters';
       return;
     }
@@ -53,17 +60,12 @@ export class RegisterComponent {
 
     this.isLoading = true;
 
-    this.authService.register(this.username, this.password, 'USER').subscribe({
-      next: (response) => {
-        if (response.id) {
-          this.successMessage = 'Registration successful. Login to proceed';
-          setTimeout(() => {
-            this.router.navigate(['/login']);
-          }, 2000);
-        } else if (response.error) {
-          this.errorMessage = response.error;
-        }
-        this.isLoading = false;
+    this.authService.register(username,email, password, 'USER').subscribe({
+      next: ()=> {
+       this.successMessage='Registration successful, Please login';
+       this.isLoading=false;
+       setTimeout(() => {this.router.navigate(['/login']);
+       }, 300);
       },
       error: (error) => {
         console.error('Registration error:', error);
