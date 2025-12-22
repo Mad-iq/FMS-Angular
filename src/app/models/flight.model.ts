@@ -20,3 +20,14 @@ export interface Flight {
   price: number;
   availableSeatNumbers: string[];
 }
+
+export interface AddFlightRequest {
+  airlineName: string;
+  source: string;
+  destination: string;
+  startDate: string;      
+  endDate: string;       
+  availableSeats: number;
+  ticketPrice: number;
+  mealStatus: boolean;
+}

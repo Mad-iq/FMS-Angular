@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, timeout, catchError, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { SearchFlightRequest, Flight } from '../models/flight.model';
+import { SearchFlightRequest, Flight, AddFlightRequest } from '../models/flight.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,11 @@ export class FlightService {
 
   getFlightInfo(flightId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/inventory/${flightId}`);
+  }
+
+  addFlight(request: AddFlightRequest): Observable<any> {
+    return this.http.post<any>(this.apiUrl, request).pipe(
+      catchError(error => throwError(() => error))
+    );
   }
 }
