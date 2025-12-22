@@ -44,8 +44,7 @@ export class SearchFlightsComponent implements OnInit {
     this.username = this.authService.getUsername() || 'User';
      const now = new Date();
      this.today = now.toISOString().split('T')[0];
-  }
-  
+  } 
   searchFlights() {
     this.errorMessage = '';
     
@@ -71,7 +70,6 @@ export class SearchFlightsComponent implements OnInit {
       next: (flights) => {
         this.flights = flights;
         this.isLoading = false;
-        
         if (this.flights.length === 0) {
           this.errorMessage = 'No flights found for your search criteria';
         }
@@ -105,6 +103,10 @@ export class SearchFlightsComponent implements OnInit {
   }
 
   goToBooking(flightId: string){
+  if(this.isAuthenticated){
     this.router.navigate(['/book-flight', flightId]);
+  }else {
+    this.router.navigate(['/login']);
+  }
   }
 }

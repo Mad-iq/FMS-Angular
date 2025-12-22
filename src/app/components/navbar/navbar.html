@@ -3,8 +3,8 @@
 
     <div class="nav-left">
       <a routerLink="/" class="nav-link">Home</a>
+      <button class="nav-btn" (click)="searchFlights()">Search Flights</button>
       <ng-container *ngIf="isAuthenticated">
-        <button class="nav-btn" (click)="searchFlights()">Search Flights</button>
         <button *ngIf="isUser" class="nav-btn" (click)="viewBookings()">View Bookings</button>
         <button *ngIf="isAdmin" class="btn-admin" routerLink="/flight-inventory">Add Flight</button>
       </ng-container>
