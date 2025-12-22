@@ -97,7 +97,7 @@
             <div class="amenities">
               <span class="amenity">{{flight.availableSeats|| 0 }} seats left</span>
             </div>
-            <button class="btn-book" (click)="goToBooking(flight.flightId)">Select Flight</button>
+            <button class="btn-book"  *ngIf="!isAdmin" (click)="goToBooking(flight.flightId)">Select Flight</button>
           </div>
         </div>
       </div>

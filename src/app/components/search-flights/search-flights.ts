@@ -16,6 +16,7 @@ import { Navbar } from '../navbar/navbar';
 })
 export class SearchFlightsComponent implements OnInit {
   username: string = '';
+  isAdmin = false;
   today!: string;
   searchForm = {
     source: 'DELHI',
@@ -42,6 +43,7 @@ export class SearchFlightsComponent implements OnInit {
 
   ngOnInit() {
     this.username = this.authService.getUsername() || 'User';
+    this.isAdmin = this.authService.getUserRole() === 'ADMIN';
      const now = new Date();
      this.today = now.toISOString().split('T')[0];
   } 
