@@ -47,7 +47,6 @@ onSeatCountChange(seats: number) {
     seatNumber:''
   }));
 }
-
   bookFlight(): void{
     this.error='';
     const bookingRequest: BookingRequest={
@@ -65,7 +64,9 @@ onSeatCountChange(seats: number) {
     this.bookingService.bookFlight(this.flightId, bookingRequest).subscribe({
       next: (response: any)=>{
         if(response?.pnr){
-           this.router.navigate(['/booking-details', response.pnr]);
+           this.router.navigate(['/booking-details', response.pnr],{
+            state:{totalPrice: response.totalPrice}
+           });
         }else{
           this.error='Booking completed but PNR not received';
         }

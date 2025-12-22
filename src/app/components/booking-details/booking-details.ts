@@ -16,11 +16,14 @@ export class BookingDetails implements OnInit {
   booking: any;
   loading = true;
   error = '';
+  totalPrice?:number;
 
   constructor(
     private route: ActivatedRoute,private bookingService: BookingService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void{
+    const navigationState = history.state;
+    this.totalPrice = navigationState?.totalPrice;
     this.pnr = this.route.snapshot.paramMap.get('pnr')!;
     this.fetchBooking();
   }
@@ -30,7 +33,7 @@ export class BookingDetails implements OnInit {
         this.booking = response;
         this.loading = false;
       },
-      error: () => {
+      error:() =>{
       this.error = 'Booking not found';
        this.loading = false;
       }

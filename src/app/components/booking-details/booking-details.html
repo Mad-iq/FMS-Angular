@@ -13,6 +13,7 @@
     <p><strong>Flight ID:</strong>   {{ booking.flightId }}</p>
     <p><strong>Status:</strong><span class="status-confirmed"> {{ booking.status }}</span></p>
     <p><strong>Seat Numbers:</strong>{{ booking.seatNumbers.join(', ') }}</p>
+    <p *ngIf="totalPrice !== undefined"><strong>Total Price:</strong>₹{{totalPrice}}</p>
 
     <hr>
     <h3>Passengers</h3>
