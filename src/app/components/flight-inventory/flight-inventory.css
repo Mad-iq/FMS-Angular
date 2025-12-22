@@ -1,5 +1,6 @@
 .inventory-container {
-  max-width: 850px;
+  width: 87vw;
+  height: 90vh;
   margin: 40px auto;
   padding: 30px;
   background: #f8fafc;
@@ -7,26 +8,80 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
 
+navbar {
+  background: linear-gradient(135deg, #8ba7dc 0%, #85b3e7 100%);
+  padding: 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
 .inventory-container h2 {
   text-align: center;
-  margin-bottom: 24px;
-  color: #1e293b;
+  margin-bottom: 45px;
+  color: #304669;
+  font-size: 35px;
+  font-weight: 600;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
+  gap: 18px;
 }
 
-input {
+.form-grid input, .form-grid select{
   padding: 11px 14px;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
   font-size: 14px;
 }
 
-input:focus {
+.form-grid input:focus, .form-grid select:focus{
   outline: none;
   border-color: #2563eb;
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
@@ -69,3 +124,5 @@ button:disabled {
   color: #dc2626;
   font-size: 14px;
 }
+
+

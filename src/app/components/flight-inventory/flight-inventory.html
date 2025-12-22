@@ -1,61 +1,25 @@
 <div class="inventory-container">
   <h2>Add Flight to Inventory</h2>
-
   <div class="form-grid">
-    <input type="text"
-      placeholder="Airline Name"
-      [(ngModel)]="flight.airlineName"
-    />
-
-    <input
-      type="text"
-      placeholder="Source"
-      [(ngModel)]="flight.source"
-    />
-
-    <input
-      type="text"
-      placeholder="Destination"
-      [(ngModel)]="flight.destination"
-    />
-
-    <input
-      type="datetime-local"
-      [(ngModel)]="flight.startDate"
-    />
-
-    <input
-      type="datetime-local"
-      [(ngModel)]="flight.endDate"
-    />
-
-    <input
-      type="number"
-      min="1"
-      placeholder="Available Seats"
-      [(ngModel)]="flight.availableSeats"
-    />
-
-    <input
-      type="number"
-      min="1"
-      placeholder="Ticket Price"
-      [(ngModel)]="flight.ticketPrice"
-    />
-
+    <input type="text" placeholder="Airline Name" [(ngModel)]="flight.airlineName"/>
+     <input type="number" min="1" placeholder="Available Seats" [(ngModel)]="flight.availableSeats"/>
+    <select [(ngModel)]="flight.source"> 
+        <option value="">Select Source</option>
+         <option *ngFor="let city of airports" [value]="city">{{city}} </option>
+     </select>
+    <select [(ngModel)]="flight.destination">
+      <option value="">Select Destination</option>
+       <option *ngFor="let city of airports" [value]="city">{{city}}</option>
+     </select>
+    <input type="datetime-local" [(ngModel)]="flight.startDate" [min]="today"/>
+    <input type="datetime-local" [(ngModel)]="flight.endDate" [min]="flight.startDate || today"/>
+    <input type="number" min="1" placeholder="Ticket Price" [(ngModel)]="flight.ticketPrice"/>
     <label class="checkbox">
-      <input
-        type="checkbox"
-        [(ngModel)]="flight.mealStatus"
-      />
+     <input type="checkbox" [(ngModel)]="flight.mealStatus"/>
       Meal Available
     </label>
   </div>
-
-  <button (click)="addFlight()" [disabled]="isLoading">
-    {{ isLoading ? 'Adding Flight...' : 'Add Flight' }}
-  </button>
-
-  <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
-  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+  <button (click)="addFlight()" [disabled]="isLoading">{{isLoading?'Adding Flight...':'Add Flight'}}</button>
+  <p class="success" *ngIf="successMessage">{{successMessage }}</p>
+  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
 </div>

@@ -1,21 +1,5 @@
+<app-navbar></app-navbar>
 <div class="page-container">
-  <nav class="navbar">
-    <div class="nav-content">
-      <div class="nav-links">
-        <a routerLink="/">Home</a>
-        <a href="#features">Features</a>
-        <a href="#destinations">Destinations</a>
-        <a href="#about">About</a>
-      </div>
-      <div class="nav-actions" *ngIf="!isAuthenticated">
-        <a routerLink="/login" class="btn-link">Login</a>
-        <a routerLink="/register" class="btn-primary-nav">Sign Up</a>
-      </div>
-      <div class="nav-actions" *ngIf="isAuthenticated">
-        <button class="btn-logout" (click)="logout()">Logout</button>
-      </div>
-    </div>
-  </nav>
   <section class="searcher-section">
     <div class="searcher-content">
       <h1>Book Domestic and International Flight Tickets</h1>

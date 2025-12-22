@@ -5,11 +5,12 @@ import { AuthService } from '../../services/auth.service';
 import { FlightService } from '../../services/flight.service';
 import { Flight, SearchFlightRequest } from '../../models/flight.model';
 import { Router, RouterModule } from '@angular/router';
+import { Navbar } from '../navbar/navbar';
 
 @Component({
   selector: 'app-search-flights',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule, Navbar],
   templateUrl: './search-flights.html',
   styleUrls: ['./search-flights.css']
 })

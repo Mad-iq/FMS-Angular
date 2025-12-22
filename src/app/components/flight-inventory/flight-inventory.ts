@@ -3,6 +3,7 @@ import { AddFlightRequest } from '../../models/flight.model';
 import { FlightService } from '../../services/flight.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-flight-inventory',
@@ -11,6 +12,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './flight-inventory.css',
 })
 export class FlightInventory{
+   get isAuthenticated(): boolean {
+  return this.authService.isAuthenticated();
+  }
   successMessage= '';
   errorMessage= '';
   isLoading= false;
@@ -20,13 +24,22 @@ export class FlightInventory{
     destination: '',
     startDate: '',
     endDate: '',
-    availableSeats: 0,
-    ticketPrice: 0,
+    availableSeats: null as any, //want to show the palceholder values not 0
+    ticketPrice: null as any,
     mealStatus: false
   };
+  today = new Date().toISOString().slice(0, 16);
+  airports:string[] = [
+    'DELHI',
+    'MUMBAI',
+    'BENGALURU',
+    'PUNE',
+    'CHENNAI',
+    'HYDERABAD',
+    'KOLKATA'
+  ];
 
-  constructor(private flightService: FlightService) {}
-
+  constructor(private flightService: FlightService, private authService: AuthService) {}
   addFlight(): void {
     this.successMessage = '';
     this.errorMessage = '';
@@ -36,21 +49,30 @@ export class FlightInventory{
     const startDate = this.flight.startDate;
     const endDate = this.flight.endDate;
 
-    if ( !airlineName|| !source|| !destination|| !startDate|| !endDate|| this.flight.availableSeats <= 0 || this.flight.ticketPrice <= 0) 
+    if ( !airlineName|| !source||!destination|| !startDate|| !endDate|| this.flight.availableSeats<= 0 || this.flight.ticketPrice<= 0) 
     {
       this.errorMessage = 'Please fill all required fields correctly';
       return;
     }
-    this.isLoading = true;
+    if(source === destination){
+      this.errorMessage='Source and Destination cannot be same';
+    }
+    if(this.flight.endDate<= this.flight.startDate){
+      this.errorMessage='End date must be after start date';
+    }
+    this.flight.airlineName= airlineName;
+    this.flight.source= source;
+    this.flight.destination= destination;
+    this.isLoading =true;
     this.flightService.addFlight(this.flight).subscribe({
-      next: (res) => {
-        this.successMessage = res?.message || 'Flight added successfully';
+      next: (response) => {
+        this.successMessage = response?.message || 'Flight added successfully';
         this.isLoading = false;
         this.resetForm();
       },
-      error: (err) => {
+      error: (error) => {
         this.errorMessage =
-          err.error?.message || 'You are not authorized to add flights';
+          error.error?.message || 'You are not authorized to add flights';
         this.isLoading = false;
       }
     });
