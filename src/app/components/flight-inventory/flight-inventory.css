@@ -20,6 +20,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
 }
 
 .form-grid input, .form-grid select{
@@ -31,19 +34,19 @@
 
 .form-grid input:focus, .form-grid select:focus{
   outline: none;
-  border-color: #2563eb;
+  border-color: #194bb7;
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
 }
 
 .checkbox {
-  grid-column: span 2;
+  grid-column:span 2;
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 14px;
 }
 
-button {
+button{
   margin-top: 22px;
   width: 100%;
   padding: 12px;
@@ -70,6 +73,18 @@ button:disabled {
 .error {
   margin-top: 14px;
   color: #dc2626;
+  font-size: 14px;
+}
+
+.form-field{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label{
+ color: #374151;
+  font-weight: 500;
   font-size: 14px;
 }
 
