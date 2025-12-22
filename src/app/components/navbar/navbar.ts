@@ -25,7 +25,11 @@ export class Navbar {
   viewBookings(): void{
     this.router.navigate(['/booking-history']);
   }
-  cancelBookings(): void{
-    this.router.navigate(['/cancel-ticket']);
+  searchFlights(): void{
+    this.router.navigate(['/search-flights']);
   }
+
+  get isUser(): boolean{
+  return this.authService.getUserRole() === 'USER';
+}
 }

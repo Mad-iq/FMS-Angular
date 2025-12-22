@@ -7,121 +7,70 @@
      
       <div class="search-card">
         <div class="search-tabs">
-          <button
-            type="button"
-            class="tab"
-            [class.active]="!searchForm.roundTrip"
-            (click)="searchForm.roundTrip = false">
-            One Way
-          </button>
-          <button
-            type="button"
-            class="tab"
-            [class.active]="searchForm.roundTrip"
-            (click)="searchForm.roundTrip = true">
-            Round Trip
-          </button>
-        </div>
+          <button type="button" class="tab" [class.active]="!searchForm.roundTrip" (click)="searchForm.roundTrip = false">One Way</button>
+          <button type="button" class="tab" [class.active]="searchForm.roundTrip" (click)="searchForm.roundTrip = true">Round Trip</button>
+         </div>
        
         <form class="search-form" (ngSubmit)="searchFlights()">
           <div class="input-row">
             <div class="input-group">
               <label>From (City Code)</label>
-              <input
-                type="text"
-                [(ngModel)]="searchForm.source"
-                name="source"
-                placeholder="e.g DELHI, MUMBAI"
-                required>
+              <input type="text" [(ngModel)]="searchForm.source" name="source" placeholder="e.g DELHI, MUMBAI" required>
             </div>
-           
             <div class="input-group">
               <label>To (City Code)</label>
-              <input
-                type="text"
-                [(ngModel)]="searchForm.destination"
-                name="destination"
-                placeholder="e.g DELHI, MUMBAI"
-                required>
-            </div>
+              <input type="text" [(ngModel)]="searchForm.destination" name="destination" placeholder="e.g DELHI" required>
+             </div>
           </div>
-         
           <div class="input-row">
             <div class="input-group">
               <label>Departure Date</label>
               <input type="date" [(ngModel)]="searchForm.departureDate" name="departureDate" [min]="today" required>
             </div>
-           
             <div class="input-group" *ngIf="searchForm.roundTrip">
               <label>Return Date</label>
-              <input
-                type="date"
-                [(ngModel)]="searchForm.returnDate"
-                name="returnDate">
-            </div>
-           
+              <input type="date" [(ngModel)]="searchForm.returnDate" name="returnDate">
+             </div>
             <div class="input-group">
               <label>Passengers</label>
-              <input
-                type="number"
-                [(ngModel)]="searchForm.numberOfPassengers"
-                name="numberOfPassengers"
-                min="1"
-                max="50"
-                required>
+              <input type="number" [(ngModel)]="searchForm.numberOfPassengers" name="numberOfPassengers" min="1" max="50" required>
             </div>
           </div>
-         
           <div class="error-message" *ngIf="errorMessage && !searched">
             {{ errorMessage }}
           </div>
-         
-          <button type="submit" class="btn-search">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
-            </svg>
-            Search Flights
-          </button>
+          <button type="submit" class="btn-search">Search Flights</button>
         </form>
-      </div>
+       </div>
     </div>
   </section>
   
   <section class="results-section" *ngIf="searched">
     <div class="results-container">
       <div class="results-header">
-        <h2>Available Flights ({{ flights.length }} found)</h2>
+        <h2>Available Flights ({{flights.length}} found)</h2>
       </div>
-
        <div class="loading" *ngIf="isLoading">
         <p>Searching for flights...</p>
-      </div>
-
+       </div>
       <div class="no-results" *ngIf="!isLoading && errorMessage && flights.length === 0">
-        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="8" x2="12" y2="12"></line>
-          <line x1="12" y1="16" x2="12.01" y2="16"></line>
-        </svg>
         <h3>{{ errorMessage }}</h3>
         <p>Please try different search criteria</p>
       </div>
-
       <div class="flight-list" *ngIf="!isLoading && flights.length > 0">
         <div class="flight-card" *ngFor="let flight of flights; let i = index">
           <div class="flight-header">
             <div class="airline-info">
               <div>
-                <h4>{{ flight.airline || 'Airline' }}</h4>
-                <span class="flight-number">{{ flight.flightId || 'N/A' }}</span>
+                <h4>{{ flight.airline}}</h4>
+                <span class="flight-number">{{flight.flightId}}</span>
               </div>
             </div>
             <div class="price-info">
-              <span class="price">₹{{ flight.price || 0 }}</span>
+              <span class="price">₹{{ flight.price}}</span>
               <span class="price-label">per person</span>
             </div>
-          </div>
-         
+           </div>
           <div class="flight-details">
             <div class="flight-time">
               <div class="time-block">
@@ -137,7 +86,6 @@
                 </div>
                 <span class="stops">Non-stop</span>
               </div>
-             
               <div class="time-block">
                 <span class="time">Arrives</span>
                 <span class="airport">{{ searchForm.destination }}</span>
@@ -145,15 +93,9 @@
               </div>
             </div>
           </div>
-         
           <div class="flight-footer">
             <div class="amenities">
-              <span class="amenity">
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
-                </svg>
-                {{ flight.availableSeats || 0 }} seats left
-              </span>
+              <span class="amenity">{{flight.availableSeats|| 0 }} seats left</span>
             </div>
             <button class="btn-book" (click)="goToBooking(flight.flightId)">Select Flight</button>
           </div>

@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<div class="profile-container">
+  <h2>My Profile</h2>
+
+  <div class="profile-card">
+    <div class="row">
+      <span class="label">Username</span>
+      <span class="value">{{username}}</span>
+    </div>
+    <div class="row">
+      <span class="label">Email</span>
+      <span class="value">{{email}}</span>
+    </div>
+    <div class="row">
+       <span class="label">Role</span>
+      <span class="value">{{role}}</span>
+    </div>
+    <button class="btn-primary" (click)="openPasswordDialog()">Change Password</button>
+  </div>
+</div>
+
+<div class="dialog-backdrop" *ngIf="showPasswordDialog">
+  <div class="dialog">
+    <h3>Change Password</h3>
+    <input type="password" placeholder="Old Password"[(ngModel)]="oldPassword"/>
+    <input type="password" placeholder="New Password" [(ngModel)]="newPassword"/>
+    <input type="password" placeholder="Confirm New Password"[(ngModel)]="confirmPassword"/>
+
+    <div class="dialog-actions">
+      <button class="button-sec" (click)="closePasswordDialog()">Cancel</button>
+      <button class="button-pri" (click)="confirmChangePassword()" [disabled]="isLoading">{{ isLoading? 'Changing...' :'Change Password'}}</button>
+    </div>
+  </div>
+</div>
+<div class="dialog-backdrop" *ngIf="showMessageDialog">
+  <div class="dialog" [class.success-dialog]="msgType === 'success'" [class.error-dialog]="msgType === 'error'">
+    <h3>{{msgTitle }}</h3>
+    <p>{{msgText}}</p>
+    <div class="dialog-actions">
+      <button class="button-pri" (click)="closeMessageDialog()">Close</button>
+    </div>
+  </div>
+</div>
+

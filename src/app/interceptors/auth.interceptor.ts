@@ -7,9 +7,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const token = authService.getToken();
  
-  if (req.url.includes('/auth/')) {
-    return next(req);
-  }
+  if (req.url.includes('/auth/login') ||req.url.includes('/auth/register')){
+  return next(req);
+}
 
   if (token) {
     const cloned = req.clone({   //http reqs are immutable in angular, so cant modify then directly

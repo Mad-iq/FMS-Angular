@@ -23,7 +23,6 @@ export class AuthService {
     return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, body);  //returns an observable whoch doesnt exe untill .subscribe is called
   }
 
-
   login(username: string, password: string): Observable<AuthResponse>{
     const body: LoginRequest= {username, password};
     return this.http.post<AuthResponse>(`${this.apiUrl}/auth/login`, body).pipe(
@@ -44,6 +43,11 @@ export class AuthService {
       })
     );
   }
+
+   changePassword(oldPassword:string, newPassword:string): Observable<{message: string }> {
+    return this.http.put<{ message:string }>(
+      `${this.apiUrl}/auth/change-password`,{oldPassword,newPassword});
+    }
 
   logout(): void{
     localStorage.removeItem(this.tokenKey);
