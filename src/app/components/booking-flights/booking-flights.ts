@@ -5,6 +5,7 @@ import { BookingService } from '../../services/booking.service';
 import { BookingRequest } from '../../models/booking.model';
 import { ActivatedRoute, Router, RouterModule, } from '@angular/router';
 import { Navbar } from '../navbar/navbar';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-booking-flight',
@@ -29,12 +30,22 @@ booking= {
 constructor(
   private bookingService: BookingService,
   private route: ActivatedRoute,  //gives you information about the currently active route
-  private router: Router
+  private router: Router,
+  private authService: AuthService
 ){} 
 
 ngOnInit(): void {
     this.flightId= this.route.snapshot.paramMap.get('flightId')!;
-    this.onSeatCountChange(this.booking.numberOfSeats);
+    const email = this.authService.getUserEmail();
+    const username = this.authService.getUsername();
+     if (!email || !username) {
+    this.error = 'User information missing. Please login again.';
+    return;
+  }
+
+  this.booking.userEmail = email;
+  this.booking.userName = username;
+  this.onSeatCountChange(this.booking.numberOfSeats);
 }
 
 onSeatCountChange(seats: number) {

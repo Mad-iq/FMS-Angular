@@ -5,11 +5,11 @@
   <div class="form-group">
     <div class="field">
       <label>Username</label>
-      <input type="text" [(ngModel)]="booking.userName" placeholder="Enter username"/>
+      <input type="text" [value]="booking.userName" readonly />
     </div>
     <div class="field">
       <label>Email</label>
-      <input type="email" [(ngModel)]="booking.userEmail" placeholder="Enter email" />
+      <input type="email" [value]="booking.userEmail" readonly />
      </div>
     <div class="field">
       <label>Passengers</label>
