@@ -53,6 +53,8 @@ Admins are seeded into the database, they cannot be self-assiged
 <img width="1805" height="939" alt="Screenshot 2025-12-23 022452" src="https://github.com/user-attachments/assets/85d76b65-4368-4fbb-8d3b-62f0f699753f" />
 
 The Add-Flight page is accessible to the admin only
+<img width="1919" height="1079" alt="Screenshot 2025-12-23 084650" src="https://github.com/user-attachments/assets/157cbbd8-bae5-4185-9e8d-d4dc2eb482e0" />
+
 <img width="1919" height="1079" alt="Screenshot 2025-12-23 012041" src="https://github.com/user-attachments/assets/662b260c-9829-42ef-8330-24202e40c999" />
 
 
