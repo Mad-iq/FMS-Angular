@@ -11,38 +11,37 @@
       <div class="row">
         <span class="label">PNR</span>
         <span class="value">{{booking.pnr}}</span>
-      </div>
+       </div>
       <div class="row">
         <span class="label">Passengers</span>
-        <span class="value">{{booking.numberOfPassengers}}</span>
+         <span class="value">{{booking.numberOfPassengers}}</span>
       </div>
       <div class="row">
         <span class="label">Journey Date</span>
-        <span class="value">{{ booking.journeyDate | date:'mediumDate' }}</span>
+         <span class="value">{{ booking.journeyDate | date:'mediumDate' }}</span>
       </div>
       <div class="row">
         <span class="label">Total Price</span>
         <span class="value">₹{{ booking.totalPrice }}</span>
-      </div>
+       </div>
       <div class="row">
         <span class="label">Status</span>
         <span class="status"
-          [class.confirmed]="booking.status === 'CONFIRMED'"
+           [class.confirmed]="booking.status === 'CONFIRMED'"  
           [class.cancelled]="booking.status === 'CANCELLED'">
           {{ booking.status }}
         </span>
-      </div>
+       </div>
       <div class="actions">
         <button class="button-cancel" (click)="openCancelDialog(booking)" [disabled]="booking.status === 'CANCELLED' || booking.cancelling"> Cancel Ticket</button>
       </div>
     </div>
   </div>
 </div>
-
 <div class="dialog-backdrop" *ngIf="showConfirmDialog">
   <div class="dialog">
     <h3>Cancel Booking</h3>
-    <p> Are you sure you want to cancel booking <strong>{{ selectedTicket.pnr }}</strong>?</p>
+    <p> Are you sure you want to cancel booking <strong>{{selectedTicket.pnr}}</strong>?</p>
     <div class="dialog-actions">
       <button class="button-sec" (click)="closeConfirmDialog()">No</button>
       <button class="button-danger" (click)="confirmCancel()">Yes, Cancel</button>

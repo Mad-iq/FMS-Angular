@@ -12,23 +12,24 @@ import { Navbar } from '../navbar/navbar';
   styleUrls: ['./booking-details.css']
 })
 export class BookingDetails implements OnInit {
-  pnr!: string;
+  pnr!: string; //! means pnr will be assigned before use
   booking: any;
   loading = true;
   error = '';
   totalPrice?:number;
 
   constructor(
-    private route: ActivatedRoute,private bookingService: BookingService) {}
-  ngOnInit(): void{
-    const navigationState = history.state;
+    private route: ActivatedRoute,private bookingService: BookingService){}
+  
+  ngOnInit(): void{      //runs when the component is initialized
+    const navigationState = history.state;  //get the browser history
     this.totalPrice = navigationState?.totalPrice;
     this.pnr = this.route.snapshot.paramMap.get('pnr')!;
     this.fetchBooking();
   }
-  fetchBooking(): void {
+  fetchBooking(): void{
     this.bookingService.getBookingByPNR(this.pnr).subscribe({
-      next: (response: any) => {
+      next:(response: any) =>{
         this.booking = response;
         this.loading = false;
       },

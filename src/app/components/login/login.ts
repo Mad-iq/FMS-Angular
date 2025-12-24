@@ -17,15 +17,15 @@ export class LoginComponent {
   rememberMe = false;
   errorMessage = '';
   isLoading = false;
+  
 
   constructor(
     private authService: AuthService,
     private router: Router
   ) {}
 
-  onLogin() {
+  onLogin(){
     this.errorMessage = '';
-   
     if (!this.username || !this.password) {
       this.errorMessage = 'Please enter username and password';
       return;
@@ -34,16 +34,16 @@ export class LoginComponent {
     this.isLoading = true;
 
     this.authService.login(this.username, this.password).subscribe({
-      next: (response) => {
-        if (response.token) {
+      next: (response) =>{
+        if (response.token){
           console.log('Login successful');
           this.router.navigate(['/search-flights']);
-        } else if (response.error) {
+        } else if (response.error){
           this.errorMessage = response.error;
         }
         this.isLoading = false;
       },
-      error: (error) => {
+      error: (error) =>{
         console.error('Login error:', error);
         this.errorMessage = error.error?.error || 'Login failed. Please try again.';
         this.isLoading = false;

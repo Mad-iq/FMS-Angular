@@ -9,18 +9,12 @@
           at unbeatable prices.
         </p>
         <div class="searcher-buttons">
-          <button class="btn-searcher-primary" (click)="navigateToSearch()">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
-            </svg>
-            Search Flights
-          </button>
+           <button class="btn-searcher-primary" (click)="navigateToSearch()">Search Flights</button>
           <a href="#features" class="btn-searcher-secondary">Learn More</a>
         </div>
       </div>
     </div>
   </section>
-
   <section id="features" class="features-section">
     <div class="section-container">
       <div class="section-header">
@@ -29,14 +23,13 @@
       </div>
       <div class="features-grid">
         <div class="feature-card" *ngFor="let feature of features">
-        <div class="feature-icon">{{ feature.icon }}</div>
-          <h3>{{ feature.title }}</h3>
-          <p>{{ feature.description }}</p>
+        <div class="feature-icon">{{feature.icon}}</div>
+          <h3>{{feature.title}}</h3>
+          <p>{{feature.description}}</p>
         </div>
        </div>
     </div>
   </section>
-
   <footer class="footer">
     <div class="footer-content">
     <div class="footer-section">
@@ -50,8 +43,6 @@
         <ul>
           <li><a routerLink="/">Home</a></li>
           <li><a routerLink="/search-flights">Search Flights</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#destinations">Destinations</a></li>
         </ul>
       </div>
       <div class="footer-section">
@@ -59,8 +50,6 @@
         <ul>
           <li><a routerLink="/login">Login</a></li>
           <li><a routerLink="/register">Sign Up</a></li>
-          <li><a href="#">My Bookings</a></li>
-          <li><a href="#">Profile</a></li>
         </ul>
       </div>
       <div class="footer-section">

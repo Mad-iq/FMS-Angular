@@ -24,7 +24,7 @@ booking= {
   userEmail: '',
   numberOfSeats: 1,
   mealType: 'VEG',
-  passengers: [] as any[]
+  passengers: [] as any[] 
 };
 
 constructor(
@@ -50,8 +50,8 @@ ngOnInit(): void {
 
 onSeatCountChange(seats: number) {
   if(!seats || seats<1)
-    return;
-  this.booking.passengers=Array.from({length: seats}, ()=>({
+     return;
+  this.booking.passengers=Array.from({length: seats}, ()=>({ //array.from creates an array of size seats, sec arg is the mapper func
     name:'',
     age:null as any, //shows the placeholder values
     gender:'',
@@ -61,7 +61,7 @@ onSeatCountChange(seats: number) {
   bookFlight(): void{
     this.error='';
     const bookingRequest: BookingRequest={
-      email: this.booking.userEmail,
+       email: this.booking.userEmail,
       name:this.booking.userName,
       numberOfSeats: this.booking.numberOfSeats,
       mealPreference: this.booking.mealType,

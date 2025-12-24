@@ -124,6 +124,18 @@ box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
 transform: translateY(0);
 }
 
+.btn-primary:disabled {
+  background: #d1d5db;       
+  color: #9ca3af;             
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+.btn-primary:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
 .btn-social {
 width: 100%;
 padding: 12px;

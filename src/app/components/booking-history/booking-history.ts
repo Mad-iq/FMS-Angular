@@ -24,7 +24,7 @@ export class BookingHistory implements OnInit{
   showMessageDialog= false;
   msgTitle= '';
   msgText= '';
-  msgType:'success'|'error' = 'success';
+  msgType:'success'|'error' = 'success'; //union type
   constructor(private bookingService: BookingService, private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -38,10 +38,10 @@ export class BookingHistory implements OnInit{
   }
   getHistory():void{
     if (!this.email) {
-      this.errormsg = 'Please enter a valid email';
+      this.errormsg ='Please enter a valid email';
       return;
     }
-    this.errormsg = '';
+    this.errormsg = ''; //clear old error
     this.loading= true;
     this.bookingService.getBookingWithDetails(this.email).subscribe({
       next:(response:any) =>{
@@ -68,7 +68,7 @@ export class BookingHistory implements OnInit{
   }
   confirmCancel(): void {
     if (!this.selectedTicket) return;
-    this.selectedTicket.cancelling= true;
+    this.selectedTicket.cancelling= true; //for loading
     this.bookingService.cancelBookingByPnr(this.selectedTicket.pnr).subscribe({
         next:(response:any) =>{
           this.selectedTicket.status= 'CANCELLED';
@@ -83,28 +83,24 @@ export class BookingHistory implements OnInit{
         }
       });
   }
-  openMessageDialog(
-    title: string,
-    message: string,
-    type: 'success'|'error'
-  ): void {
-    this.msgTitle = title;
-    this.msgText = message;
-    this.msgType = type;
-    this.showMessageDialog = true;
+  openMessageDialog(title: string,message: string,type: 'success'|'error'):void{
+    this.msgTitle= title;
+    this.msgText= message;
+    this.msgType= type;
+    this.showMessageDialog= true;
   }
 
   closeMessageDialog():void{
-    this.showMessageDialog = false;
+    this.showMessageDialog= false;
   }
 
   private sortBookingsByStatus(): void {
   this.history.sort((a, b) =>{
     if (a.status !== b.status){
-      return a.status === 'CONFIRMED'? -1:1;
+      return a.status === 'CONFIRMED'? -1:1; //-1 means a goes before b
     }
-    return new Date(b.journeyDate).getTime() - new Date(a.journeyDate).getTime();
-  });
+    return new Date(b.journeyDate).getTime() - new Date(a.journeyDate).getTime(); //newer journey date first
+  }); 
 }
 
 }

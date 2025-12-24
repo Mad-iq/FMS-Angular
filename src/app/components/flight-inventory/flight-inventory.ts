@@ -29,7 +29,7 @@ export class FlightInventory{
     ticketPrice: null as any,
     mealStatus: false
   };
-  today = new Date().toISOString().slice(0, 16);
+  today = new Date().toISOString().slice(0, 16); //treims seconds
   airports:string[] = [
     'DELHI',
     'MUMBAI',
@@ -49,7 +49,6 @@ export class FlightInventory{
     const destination = this.flight.destination.trim();
     const startDate = this.flight.startDate;
     const endDate = this.flight.endDate;
-
     if ( !airlineName|| !source||!destination|| !startDate|| !endDate|| this.flight.availableSeats<= 0 || this.flight.ticketPrice<= 0) 
     {
       this.errorMessage= 'Please fill all required fields correctly';
@@ -62,8 +61,8 @@ export class FlightInventory{
       this.errorMessage='End date must be after start date';
     }
     this.flight.airlineName= airlineName;
-    this.flight.source= source;
-    this.flight.destination= destination;
+     this.flight.source= source;
+     this.flight.destination= destination;
     this.isLoading =true;
     this.flightService.addFlight(this.flight).subscribe({
       next: (response) =>{
