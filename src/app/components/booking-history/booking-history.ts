@@ -6,6 +6,7 @@ import { BookingService } from '../../services/booking.service';
 import { BookingHistoryItem } from '../../models/booking.model';
 import { AuthService } from '../../services/auth.service';
 import { Navbar } from '../navbar/navbar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking-history',
@@ -25,7 +26,7 @@ export class BookingHistory implements OnInit{
   msgTitle= '';
   msgText= '';
   msgType:'success'|'error' = 'success'; //union type
-  constructor(private bookingService: BookingService, private authService: AuthService) {}
+  constructor(private bookingService: BookingService, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
       const storedemail= this.authService.getUserEmail();
@@ -102,6 +103,19 @@ export class BookingHistory implements OnInit{
     return new Date(b.journeyDate).getTime() - new Date(a.journeyDate).getTime(); //newer journey date first
   }); 
 }
+
+//for the view deatils button
+viewDetails(booking: BookingHistoryItem): void {
+  if (!booking?.pnr){
+    this.openMessageDialog('Error','PNR not available for this booking','error');
+    return;
+  }
+  this.router.navigate(['/booking-details', booking.pnr],{
+       state:{
+      totalPrice: booking.totalPrice}
+    });
+}
+
 
 }
 

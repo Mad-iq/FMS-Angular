@@ -16,6 +16,7 @@ export interface AuthResponse {
   username?: string;
   email?: string;
   role?: string;
+  passwordExpired?: boolean; 
   error?: string;
 }
 

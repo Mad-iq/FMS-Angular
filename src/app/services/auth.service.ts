@@ -14,6 +14,7 @@ export class AuthService {
   private userRoleKey= 'user_role';
   private usernameKey= 'username';
   private useremailKey= 'email';
+  private pwdExpiredKey = 'password_expired';
   private isAuthenticatedSubject= new BehaviorSubject<boolean>(this.hasToken());
   public isAuthenticated$= this.isAuthenticatedSubject.asObservable();
   constructor(private http: HttpClient,private router: Router){}
@@ -38,6 +39,10 @@ export class AuthService {
         if(response.role){
           this.setUserRole(response.role);
         }
+         localStorage.setItem(
+          this.pwdExpiredKey,
+          String(response.passwordExpired === true)
+        );
         this.isAuthenticatedSubject.next(true);
       }
       })
@@ -54,6 +59,7 @@ export class AuthService {
     localStorage.removeItem(this.userRoleKey);
     localStorage.removeItem(this.usernameKey);
     localStorage.removeItem(this.useremailKey);
+    localStorage.removeItem(this.pwdExpiredKey);
     this.isAuthenticatedSubject.next(false);        //braodcast logout event
     this.router.navigate(['/login']);
   }
@@ -97,5 +103,14 @@ export class AuthService {
   setUserEmail(email: string): void{
   localStorage.setItem(this.useremailKey, email);
  }
+
+ isPasswordExpired(): boolean{
+  return localStorage.getItem(this.pwdExpiredKey) === 'true';
+}
+
+clearPasswordExpired(): void{
+  localStorage.removeItem(this.pwdExpiredKey);
+}
+
 
 }

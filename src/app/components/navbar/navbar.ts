@@ -32,4 +32,8 @@ export class Navbar {
   get isUser(): boolean{
   return this.authService.getUserRole() === 'USER';
 }
+
+get isPasswordExpired(): boolean {
+  return this.authService.isPasswordExpired();
+}
 }

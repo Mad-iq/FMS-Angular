@@ -1,4 +1,4 @@
-export interface SearchFlightRequest {
+export interface SearchFlightRequest{
   source: string;
   destination: string;
   journeyDate: string;
@@ -7,12 +7,12 @@ export interface SearchFlightRequest {
   returnDate?: string;
 }
 
-export interface FlightSearchResponse {
+export interface FlightSearchResponse{
   onwardFlights: Flight[];
   returnFlights?: Flight[];
 }
 
-export interface Flight {
+export interface Flight{
   flightId: string;
   airline: string;
   availableSeats: number;
@@ -21,7 +21,7 @@ export interface Flight {
   availableSeatNumbers: string[];
 }
 
-export interface AddFlightRequest {
+export interface AddFlightRequest{
   airlineName: string;
   source: string;
   destination: string;
@@ -30,4 +30,15 @@ export interface AddFlightRequest {
   availableSeats: number;
   ticketPrice: number;
   mealStatus: boolean;
+}
+
+export interface AdminFlight{
+  flightId: string;
+  airline: string;
+  source: string;
+  destination: string;
+  startDateTime: string;
+  endDateTime: string;
+  price: number;
+  availableSeats:number;
 }

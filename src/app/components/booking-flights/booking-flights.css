@@ -160,3 +160,46 @@ hr {
     margin: 16px auto;
   }
 }
+
+/* for seat booking grid */
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.seat {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #94a3b8;
+  background: #f8fafc;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.seat.selected {
+  background: #4497db;
+  color: white;
+  border-color: #274d86;
+}
+
+.seat.booked {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.seat-hint {
+  font-size: 14px;
+  color: #475569;
+}
+
+/* disabled book button */
+.btn-book:disabled {
+  background: #9da6b0;
+  cursor: not-allowed;
+  opacity: 0.7;
+  border: #94a3b8;
+}
+

@@ -33,6 +33,7 @@
         </span>
        </div>
       <div class="actions">
+        <button class="button-view" (click)="viewDetails(booking)"[disabled]="booking.status === 'CANCELLED'"> View Details</button>
         <button class="button-cancel" (click)="openCancelDialog(booking)" [disabled]="booking.status === 'CANCELLED' || booking.cancelling"> Cancel Ticket</button>
       </div>
     </div>

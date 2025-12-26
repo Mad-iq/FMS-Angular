@@ -36,8 +36,15 @@ export class LoginComponent {
     this.authService.login(this.username, this.password).subscribe({
       next: (response) =>{
         if (response.token){
-          console.log('Login successful');
-          this.router.navigate(['/search-flights']);
+          if (response.passwordExpired) {
+          this.router.navigate(['/profile'], {
+           queryParams: { forceChange: 'true' }
+      });
+    } else {
+      this.router.navigate(['/search-flights']);
+    }
+          
+          
         } else if (response.error){
           this.errorMessage = response.error;
         }

@@ -41,4 +41,12 @@ getBookingWithDetails(email: string) {
     `http://localhost:8765/BOOKING-MICROSERVICE/api/flight/booking/history/details/${email}`
   );
 }
+
+//for seat booking
+getFlightInventory(flightId: string) {
+  return this.http.get<any>(
+    `http://localhost:8765/FLIGHT-MICROSERVICE/api/flight/inventory/${flightId}`
+  );
+}
+
 }

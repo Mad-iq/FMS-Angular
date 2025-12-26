@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="admin-flights-container">
+  <h2>All Flights</h2>
+  <p class="error" *ngIf="error">{{ error }}</p>
+  <div class="flights-grid" *ngIf="flights.length">
+    <div class="flight-card" *ngFor="let flight of flights">
+       <div class="flight-header">
+        <span class="flight-id">{{ flight.flightId }}</span>
+        <span class="airline">{{flight.airline}}</span>
+       </div>
+
+      <div class="route">
+        {{flight.source}} → {{flight.destination}}
+      </div>
+
+      <div class="time-row">
+        <div>
+          <label>Departure: </label>
+          <span>{{flight.startDateTime | date:'medium'}}</span>
+        </div>
+
+        <div>
+          <label>Arrival: </label>
+          <span>{{flight.endDateTime | date:'medium'}}</span>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="price">₹ {{flight.price}}</div>
+        <!-- <div class="seats">
+          Seats Left: <strong> {{flight.availableSeats}}</strong>
+        </div> -->
+      </div>
+     </div>
+
+  </div>
+  <p *ngIf="flights.length === 0">
+    No flights available
+  </p>
+</div>
+

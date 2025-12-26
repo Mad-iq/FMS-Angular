@@ -49,12 +49,26 @@
           </label>
         </div>
       </div>
-      <div class="field">
+      <!-- <div class="field">
         <label>Seat Number</label>
         <input type="text" [(ngModel)]="passenger.seatNumber" placeholder="e.g., 12A"/>
-      </div>
+      </div> -->
     </div>
   </div>
-  <button class="btn-book" (click)="bookFlight()">Book Flight</button>
+    <div class="seat-section">
+      <h3>Select Seats</h3>
+      <p class="seat-hint">
+        Select {{booking.numberOfSeats}} seat(s)
+       </p>
+    <div class="seat-grid">
+      <button *ngFor="let seat of seats" class="seat"
+        [class.booked]="seat.booked"
+         [class.selected]="isSelected(seat)"
+        [disabled]="seat.booked" (click)="toggleSeat(seat)">
+        {{seat.seatNumber}}
+      </button>
+     </div>
+  </div>
+  <button class="btn-book" [disabled]="!canBook()" (click)="bookFlight()">Book Flight</button>
   <p class="error" *ngIf="error">{{ error }}</p>
 </div>

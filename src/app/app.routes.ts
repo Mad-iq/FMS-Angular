@@ -8,6 +8,8 @@ import { BookingDetails } from './components/booking-details/booking-details';
 import { BookingHistory } from './components/booking-history/booking-history';
 import { FlightInventory } from './components/flight-inventory/flight-inventory';
 import { Profile } from './components/profile/profile';
+import { AllFlightsAdmin } from './components/all-flights-admin/all-flights-admin';
+import { passwordExpiredGuard } from './guards/password-expired.guard';
 
 
 export const routes: Routes = [
@@ -15,11 +17,12 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent  },
   { path: 'register', component: RegisterComponent },
-  { path: 'search-flights',component: SearchFlightsComponent },
-  { path: 'book-flight/:flightId', component: BookingFlightComponent },
-  { path: 'booking-details/:pnr', component: BookingDetails},
-  { path: 'booking-history', component: BookingHistory},
-  { path: 'flight-inventory', component: FlightInventory },
-  { path: 'profile', component: Profile }
+  { path: 'search-flights',component: SearchFlightsComponent, canActivate: [passwordExpiredGuard] },
+  { path: 'book-flight/:flightId', component: BookingFlightComponent, canActivate: [passwordExpiredGuard] },
+  { path: 'booking-details/:pnr', component: BookingDetails, canActivate: [passwordExpiredGuard]},
+  { path: 'booking-history', component: BookingHistory, canActivate: [passwordExpiredGuard]},
+  { path: 'flight-inventory', component: FlightInventory, canActivate: [passwordExpiredGuard]},
+  { path: 'profile', component: Profile},
+  { path: 'all-flights', component: AllFlightsAdmin, canActivate: [passwordExpiredGuard]}
 
 ];

@@ -67,11 +67,15 @@ button:disabled {
 .success {
   margin-top: 14px;
   color: #37b866;
+  background-color: #dcfce7;
+   border: 1px solid #86efac;
 }
 
 .error {
   margin-top: 14px;
   color: #dc2626;
+   background-color: #fee2e2;   
+  border: 1px solid #fca5a5;  
 }
 
 .success,
@@ -83,6 +87,7 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 10px;
 }
 
 .form-field{

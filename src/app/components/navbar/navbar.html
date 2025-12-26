@@ -7,6 +7,7 @@
       <ng-container *ngIf="isAuthenticated">
         <button *ngIf="isUser" class="nav-btn" (click)="viewBookings()">View Bookings</button>
         <button *ngIf="isAdmin" class="btn-admin" routerLink="/flight-inventory">Add Flight</button>
+        <button *ngIf="isAdmin" class="btn-admin" routerLink="/all-flights">View Flights</button>
       </ng-container>
      </div>
 

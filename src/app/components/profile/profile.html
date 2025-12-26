@@ -23,12 +23,29 @@
   <div class="dialog">
     <h3>Change Password</h3>
     <input type="password" placeholder="Old Password"[(ngModel)]="oldPassword"/>
-    <input type="password" placeholder="New Password" [(ngModel)]="newPassword"/>
+    <input type="password" placeholder="New Password" [(ngModel)]="newPassword" (ngModelChange)="onNewPswdChange($event)"/>
+       <div class="password-strength" *ngIf="newPassword">
+        <div class="bar"
+        [class.active]="pswdStrength >= 1"></div>
+        <div class="bar"
+        [class.active]="pswdStrength >= 2"></div>
+        <div class="bar"
+        [class.active]="pswdStrength >= 3"></div>
+        <div class="bar"
+        [class.active]="pswdStrength >= 4"></div>
+        <div class="bar"
+        [class.active]="pswdStrength >= 5"></div>
+      </div>
+       <ul class="password-rules" *ngIf="newPassword && pswdErrors.length">
+        <li *ngFor="let error of pswdErrors">
+          {{error}}
+        </li>
+      </ul>
     <input type="password" placeholder="Confirm New Password"[(ngModel)]="confirmPassword"/>
 
     <div class="dialog-actions">
       <button class="button-sec" (click)="closePasswordDialog()">Cancel</button>
-      <button class="button-pri" (click)="confirmChangePassword()" [disabled]="isLoading">{{ isLoading? 'Changing...' :'Change Password'}}</button>
+      <button class="button-pri" (click)="confirmChangePassword()" [disabled]="isLoading||pswdStrength < 5">{{ isLoading? 'Changing...' :'Change Password'}}</button>
     </div>
   </div>
 </div>
